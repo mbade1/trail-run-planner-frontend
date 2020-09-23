@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux'
 
 class App extends React.Component {
 //step 1 test the fetch req to the db
@@ -35,4 +36,18 @@ class App extends React.Component {
   }
 }
 
-export default App;
+//used to see what is IN our store.
+const mapStateToProps = (state) => {
+  return {
+    example: state.example
+  }
+}
+
+//used to add something to our store or dispatch new actions to our store directly from this comp.
+const mapDispatchToProps = (state) => {
+
+}
+
+//below can also take mapDispatchToProps
+//passing in the mapStateToProps func. The return val of that func is coming from our store. 
+export default connect(mapStateToProps, mapDispatchToProps)(App);
