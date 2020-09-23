@@ -2,12 +2,19 @@ const initialState = {
     example: []
 }
 
-function reducer(state = initialState, action) {
-    return state;
+const Reducer = (state = {trails: [], users: []}, action) => {
+    switch(action.type) {
+        case 'ADD_TRAILS':
+            return {
+                ...state,
+                trails: [...state.trails]
+            }
+        default:
+            return state;
+    }
 }
 
-
-export default reducer;
+export default Reducer;
 
 
 
