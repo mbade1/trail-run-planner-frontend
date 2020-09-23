@@ -1,4 +1,4 @@
-export const fetchCityAndTrails = (city = 'San+Marcos', state = 'TX') => {
+export const fetchCityAndTrails = (city = 'Madison', state = 'WI') => {
     return (dispatch) => {
         fetch(`https://api.geocod.io/v1.6/geocode?q=${city}%2c+${state}&api_key=fc2c5a56d555f92a9adc9526f2a5daa15a6a53a`)
         .then(resp => resp.json())
@@ -8,11 +8,15 @@ export const fetchCityAndTrails = (city = 'San+Marcos', state = 'TX') => {
         const fetchTrails = (coordinates) => {
         fetch(`https://www.hikingproject.com/data/get-trails?lat=${coordinates['results'][0]['location']['lat']}&lon=${coordinates['results'][0]['location']['lng']}&maxDistance=10&key=200922216-abc9f3b851d5d8ddadbd0acb2322cefe`)
         .then(resp => resp.json())
-        .then(trails => dispatch({type: 'ADD_TRAILS', trails}))      
+        .then(trails => dispatch({
+            type: 'FETCH_TRAILS',
+            payload: trails
+        }))      
         } 
     }
 }
 
+// dispatch({type: 'ADD_TRAILS', trails})
 
 
   //   //fetch to convert zip code or City, STATE(2-letter abbreviation) into long/lat

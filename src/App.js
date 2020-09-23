@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import TrailsContainer from './containers/trailsContainer'
+import Reducer from './reducers/reducer'
 
 class App extends React.Component {
 //step 1 test the fetch req to the db
@@ -30,10 +31,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-//used to add something to our store or dispatch new actions to our store directly from this comp.
-const mapDispatchToProps = (state) => {
-
+function mapDispatchToProps(dispatch){
+  return { fetchTrails: () => dispatch(Reducer()) }
 }
+
+//used to add something to our store or dispatch new actions to our store directly from this comp.
+
 
 //below can also take mapDispatchToProps
 //passing in the mapStateToProps func. The return val of that func is coming from our store. 

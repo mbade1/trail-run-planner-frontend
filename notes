@@ -1,0 +1,6 @@
+How to solve npm error “npm ERR! code ELIFECYCLE”
+    1: npm cache clean --force
+    2: rm -rf node_modules package-lock.json
+    3: npm install
+    4: npm start
+

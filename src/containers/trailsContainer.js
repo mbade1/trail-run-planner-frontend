@@ -12,7 +12,7 @@ class TrailsContainer extends React.Component {
     render() {
         return (
             <div>
-                <Trails/>
+                <Trails trails={this.props.trails}/>
             </div>
         )
     }

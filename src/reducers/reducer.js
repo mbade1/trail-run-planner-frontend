@@ -1,13 +1,14 @@
 const initialState = {
-    example: []
+    trails: [],
+    users: []
 }
 
-const Reducer = (state = {trails: [], users: []}, action) => {
-    switch(action.type) {
-        case 'ADD_TRAILS':
+const Reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'FETCH_TRAILS':
             return {
                 ...state,
-                trails: [...state.trails]
+                trails: action.payload.trails
             }
         default:
             return state;

@@ -16,8 +16,5 @@ export const signUp = (username, email, password) => {
         })
         .then(response => response.json())
         .then(newUser => console.log(newUser))
-
-
-
     }
 }
