@@ -1,4 +1,4 @@
-export const fetchCityAndTrails = (city = 'Madison', state = 'WI') => {
+export const fetchCityAndTrails = (city = 'San+Francisco', state = 'CA') => {
     return (dispatch) => {
         fetch(`https://api.geocod.io/v1.6/geocode?q=${city}%2c+${state}&api_key=fc2c5a56d555f92a9adc9526f2a5daa15a6a53a`)
         .then(resp => resp.json())

@@ -4,3 +4,11 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
     3: npm install
     4: npm start
 
+
+
+MAKE FETCH CALL TO GET WEATHER FOR COORDINATES AS WELL?????????
+    - Have a Weather container at the top of the search page that gets the coordinates. 3 Asynch fetch calls made (geolocation, trails, and weather)
+    - Display temperature, %rain, etc...
+
+
+Saving trails into db - need to have a fetch call to search trails by ID when User pulls up individual trails.
