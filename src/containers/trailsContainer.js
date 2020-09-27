@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
 import {fetchCityAndTrails} from '../actions/trails'
 import Trails from '../components/trails'
+import TrailSearch from '../components/trailSearch'
 
 class TrailsContainer extends React.Component {
     componentDidMount() {
@@ -12,6 +13,7 @@ class TrailsContainer extends React.Component {
     render() {
         return (
             <div>
+                <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails}/>
                 <Trails trails={this.props.trails}/>
             </div>
         )

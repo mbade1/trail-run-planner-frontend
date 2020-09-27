@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.trail-search {
+  border: 2px solid black;
+  width: 75%;
+  margin: 2% auto;
+}
+
 .trail {
   font-weight: 400;
   background-color: #cfda6d
