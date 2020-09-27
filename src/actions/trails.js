@@ -6,7 +6,7 @@ export const fetchCityAndTrails = (city = "Foresta", statee = "CA") => {
     
 
         const fetchTrails = (coordinates) => {
-        fetch(`https://www.hikingproject.com/data/get-trails?lat=${coordinates['results'][0]['location']['lat']}&lon=${coordinates['results'][0]['location']['lng']}&key=200922216-abc9f3b851d5d8ddadbd0acb2322cefe`)
+        fetch(`https://www.hikingproject.com/data/get-trails?lat=${coordinates['results'][0]['location']['lat']}&lon=${coordinates['results'][0]['location']['lng']}&maxResults=50&key=200922216-abc9f3b851d5d8ddadbd0acb2322cefe`)
         .then(resp => resp.json())
         .then(trails => dispatch({
             type: 'FETCH_TRAILS',

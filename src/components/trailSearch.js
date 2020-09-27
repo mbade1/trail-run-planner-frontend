@@ -31,8 +31,10 @@ class TrailSearch extends React.Component {
             <div className="trail-search">
                 <h1>Trail Search</h1>
                 <form onSubmit={this.handleSubmit}>
-                    City: <input type="text" name="city" onChange={(event) => this.handleChange(event)} value={this.state.city} />
-                    State: <input type="text" name="statee" onChange={(event) => this.handleChange(event)} value={this.state.statee}/> 
+                    <b>City</b>: <input type="text" name="city" onChange={(event) => this.handleChange(event)} value={this.state.city} />
+                    &nbsp;
+                    <b>State</b>: <input type="text" name="statee" onChange={(event) => this.handleChange(event)} value={this.state.statee}/> 
+                    &nbsp;
                     <input type="submit" value="Search for trails!"></input>
                 </form>
                 <p><i>Enter your city and State initials. Ex: City: "Foresta" State: "CA"</i></p>
