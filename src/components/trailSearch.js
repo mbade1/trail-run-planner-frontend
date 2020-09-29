@@ -9,6 +9,7 @@ class TrailSearch extends React.Component {
     }
 
     handleChange = (event) => {
+        console.log(event)
         this.setState({
           [event.target.name]: event.target.value
         })

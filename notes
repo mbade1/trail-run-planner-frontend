@@ -5,6 +5,8 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
     4: npm start
 
 
+Added: loginContainer, journalContainer, imported trail image, and changed App.js to only render loginContainer
+
 
 MAKE FETCH CALL TO GET WEATHER FOR COORDINATES AS WELL?????????
     - Have a Weather container at the top of the search page that gets the coordinates. 3 Asynch fetch calls made (geolocation, trails, and weather)

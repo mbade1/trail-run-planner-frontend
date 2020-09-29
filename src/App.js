@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import TrailsContainer from './containers/trailsContainer'
+import JournalContainer from './containers/journalContainer'
 import Reducer from './reducers/reducer'
+import LoginContainer from './containers/loginContainer';
 
 class App extends React.Component {
 //step 1 test the fetch req to the db
@@ -18,7 +20,9 @@ class App extends React.Component {
   render() {
   return (
      <div className="App">
-        <TrailsContainer/>
+        {/* <TrailsContainer/>
+        <JournalContainer/> */}
+        <LoginContainer/>
      </div>
    );
   }
