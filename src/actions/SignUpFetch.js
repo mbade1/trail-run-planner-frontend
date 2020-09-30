@@ -1,5 +1,4 @@
-import { getQueriesForElement } from "@testing-library/react";
-
+import setUser from './actions'
 const SignUpFetch = (username, email, password) => {  
   // return(dispatch) => {
   fetch("http://localhost:3000/users", {
@@ -23,8 +22,11 @@ const SignUpFetch = (username, email, password) => {
       localStorage.setItem('token', newUser.token);
       getUser()
       .then(user => {
-        this.props.setUser(user);
+        setUser(user)
       })
+    }
+    else {
+      alert(newUser.errors)
     }
   })
   // .then(newUser => dispatch({
@@ -42,8 +44,8 @@ function getUser() {
       "Content-Type": 'application/json',
     }
   }
-  return fetch('http://localhost:3000/api/v1/users', config)
-  .then(r => r.json())
+  return fetch('http://localhost:3000/users', config)
+  .then(resp => resp.json())
   .then(users => {
     const id = localStorage.getItem('id')
     return users.find(user => user.id == id)

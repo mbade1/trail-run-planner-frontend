@@ -5,6 +5,7 @@ import TrailsContainer from '../containers/TrailsContainer'
 import Home from '../components/Home'
 import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
+import LogOut from '../components/LogOut'
 
 
 const NavBar = (props) => {
@@ -15,7 +16,7 @@ const NavBar = (props) => {
         <div>
         {isLoggedIn() ?
             <div className="nav">
-                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Journals</Link>
+                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Journals</Link> | <Link to="/logout">LogOut</Link>
             </div>    
             :
             <div className="nav">
@@ -37,6 +38,9 @@ const NavBar = (props) => {
                 </Route>
                 <Route exact path="/signup">
                     <SignUp />
+                </Route>
+                <Route exact path="/logout">
+                    <LogOut />
                 </Route>
             </Switch>
         </div>
