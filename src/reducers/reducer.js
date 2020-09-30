@@ -28,8 +28,3 @@ const Reducer = (state = initialState, action) => {
 }
 
 export default Reducer;
-
-
-
-
-//If you have multiple reducers, remember to use combineReducers (import this, if needed!)
