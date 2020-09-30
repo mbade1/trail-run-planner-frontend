@@ -1,16 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
-import TrailsContainer from './containers/TrailsContainer';
-import JournalContainer from './containers/JournalContainer';
 import Reducer from './reducers/reducer';
-import LoginContainer from './containers/LoginContainer';
-import Trail from './components/Trail';
-import WelcomeImage from './images/trail-background.jpg'
-import Home from './components/Home'
-
 
 class App extends React.Component {r
 
@@ -32,7 +24,8 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch){
   return { fetchTrails: () => dispatch(Reducer()),
-    SignUpFetch: () => dispatch(Reducer())
+    SignUpFetch: () => dispatch(Reducer()),
+    LogInFetch: () => dispatch(Reducer())
   }
 }
 

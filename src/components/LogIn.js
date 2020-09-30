@@ -1,5 +1,8 @@
 import React from 'react'
 import LogInFetch from '../actions/LogInFetch'
+import { withRouter } from 'react-router-dom';
+
+
 
 class LogIn extends React.Component {
     constructor(props) {
@@ -16,7 +19,9 @@ class LogIn extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         //if the name of the city has a space in it, split the city string into an array and join with +.
-        LogInFetch(this.state.username, this.state.email, this.state.password)
+        LogInFetch(this.state.username, this.state.password)
+        this.props.history.push('/trails');
+        debugger
         this.setState({
             username: '', 
             email: '', 
@@ -44,4 +49,4 @@ class LogIn extends React.Component {
     }
 }
 
-export default LogIn
+export default withRouter(LogIn)
