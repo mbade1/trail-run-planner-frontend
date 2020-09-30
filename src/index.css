@@ -33,34 +33,31 @@ a:hover {
   background-size: auto; */
   width: 100%;
   height: 750px;
-  color: white;
+  color: rgb(230, 220, 220);
 }
 
 .Home h1 {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 25%;
   left: 50%;
-  margin-right: -50%;
   transform: translate(-50%, -50%)
 }
 
 .Home p {
-  position: absolute;
-  top: 60%;
+  position: relative;
+  top: 25%;
   left: 50%;
-  margin-right: -50%;
   transform: translate(-50%, -50%);
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1.5em;
 }
 
 
 .nav {
-  height: auto;
-  margin-bottom: 1px;
   margin-left: 0%;
-  font-size: 2em;
-  text-align: left;
+  font-size: 1.5em;
+  /* background-color: #c7db6d; */
+  /* text-align: left; */
 }
 
 

@@ -18,7 +18,6 @@ class App extends React.Component {r
   return (
      <div className="App">
       <NavBar/>
-      <Home/>
      </div>
    );
   }
