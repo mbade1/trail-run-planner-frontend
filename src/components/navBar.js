@@ -6,6 +6,8 @@ import Home from '../components/Home'
 import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
 import LogOut from '../components/LogOut'
+import LogOutFetch from '../fetchCalls/LogOut'
+
 
 
 const NavBar = (props) => {
@@ -16,7 +18,13 @@ const NavBar = (props) => {
         <div>
         {isLoggedIn() ?
             <div className="nav">
-                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Journals</Link> | <Link to="/logout">LogOut</Link>
+                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Journals</Link> | 
+                <Link to="/logout"><div onClick={() => {
+                    LogOutFetch();
+                    // history.push('/');
+                }}>
+             LogOut
+        </div></Link>
             </div>    
             :
             <div className="nav">

@@ -1,7 +1,7 @@
 import React from 'react'
 import SignUpFetch from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
-
+import { connect } from 'react-redux' 
 
 class SignUp extends React.Component {
 
@@ -21,6 +21,7 @@ class SignUp extends React.Component {
         //if the name of the city has a space in it, split the city string into an array and join with +.
         SignUpFetch(this.state.username, this.state.email, this.state.password)
         this.props.history.push('/trails');
+        debugger
         this.setState({
             username: '', 
             email: '', 
@@ -50,4 +51,4 @@ class SignUp extends React.Component {
     }
 }
 
-export default withRouter(SignUp)
+export default connect(null, {SignUpFetch})(withRouter(SignUp))

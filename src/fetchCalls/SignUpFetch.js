@@ -22,7 +22,7 @@ const SignUpFetch = (username, email, password) => {
       localStorage.setItem('token', newUser.token);
       getUser()
       .then(user => {
-        setUser(user)
+        dispatch({type: 'ADD_USER', payload: user})
       })
     }
     else {

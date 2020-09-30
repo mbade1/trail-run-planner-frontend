@@ -14,7 +14,7 @@ const Reducer = (state = initialState, action) => {
         case 'ADD_USER':
             return {
                 ...state,
-                user: action.payload.user
+                user: [...state.user, action.payload.user]
             }
         case "SET_USER":
             return {
