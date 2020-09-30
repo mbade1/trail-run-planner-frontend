@@ -1,5 +1,5 @@
 import React from 'react'
-import Trails from './trails'
+import Trails from './Trails'
 
 const Trail = (props) => {
 

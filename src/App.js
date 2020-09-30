@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import NavBar from './components/navBar';
-import TrailsContainer from './containers/trailsContainer';
-import JournalContainer from './containers/journalContainer';
+import NavBar from './components/NavBar';
+import TrailsContainer from './containers/TrailsContainer';
+import JournalContainer from './containers/JournalContainer';
 import Reducer from './reducers/reducer';
-import LoginContainer from './containers/loginContainer';
-import Trail from './components/trail';
+import LoginContainer from './containers/LoginContainer';
+import Trail from './components/Trail';
+import WelcomeImage from './images/trail-background.jpg'
+import Home from './components/Home'
 
 
 class App extends React.Component {r
@@ -15,16 +17,8 @@ class App extends React.Component {r
   render() {
   return (
      <div className="App">
-       <NavBar/>
-          {/* <Route path="/" component={NavBar} /> */}
-          <Route exact path="/trails" component={TrailsContainer}>Trails</Route>
-          <Route exact path="/users/:user/journals" component={JournalContainer}/>
-
-        {/* After creating login functionality, add <WelcomeContainer/> with name of user inside.*/}
-        <TrailsContainer/>
-
-        <JournalContainer/>
-        {/* <LoginContainer */}
+      <NavBar/>
+      <Home/>
      </div>
    );
   }

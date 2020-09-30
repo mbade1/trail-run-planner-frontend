@@ -12,6 +12,58 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+  color: #7aaa0a;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #aa9f0a
+}
+
+
+.Home {
+  background: url('./images/trail-background.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background-repeat: no-repeat;
+  background-size: auto; */
+  width: 100%;
+  height: 750px;
+  color: white;
+}
+
+.Home h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.Home p {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+
+.nav {
+  height: auto;
+  margin-bottom: 1px;
+  margin-left: 0%;
+  font-size: 2em;
+  text-align: left;
+}
+
+
 .trail-search {
   border: 2px solid black;
   width: 75%;

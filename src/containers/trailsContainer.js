@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-import {fetchCityAndTrails} from '../actions/trails'
-import Trails from '../components/trails'
-import TrailSearch from '../components/trailSearch'
+import {fetchCityAndTrails} from '../actions/Trails'
+import Trails from '../components/Trails'
+import TrailSearch from '../components/TrailSearch'
 
 class TrailsContainer extends React.Component {
     componentDidMount() {

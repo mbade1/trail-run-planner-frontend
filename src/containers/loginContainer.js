@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import TrailsContainer from './trailsContainer'
-import JournalContainer from './journalContainer'
+import TrailsContainer from './TrailsContainer'
+import JournalContainer from './JournalContainer'
 
 
 class LoginContainer extends React.Component {
