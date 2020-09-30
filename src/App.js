@@ -1,29 +1,30 @@
 import React from 'react';
 import './App.css';
-import { connect } from 'react-redux'
-import TrailsContainer from './containers/trailsContainer'
-import JournalContainer from './containers/journalContainer'
-import Reducer from './reducers/reducer'
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import NavBar from './components/navBar';
+import TrailsContainer from './containers/trailsContainer';
+import JournalContainer from './containers/journalContainer';
+import Reducer from './reducers/reducer';
 import LoginContainer from './containers/loginContainer';
+import Trail from './components/trail';
 
-class App extends React.Component {
-//step 1 test the fetch req to the db
-  // componentDidMount() {
-  //   //fetch to get trails from db is: url/trails. This console.logs the first index of the journals array for user 1
-  //   fetch('http://localhost:3000/users/2/journals', {
-  //     method: 'GET'
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(db => console.log(db[0]))
 
+class App extends React.Component {r
 
   render() {
   return (
      <div className="App">
+       <NavBar/>
+          {/* <Route path="/" component={NavBar} /> */}
+          <Route exact path="/trails" component={TrailsContainer}>Trails</Route>
+          <Route exact path="/users/:user/journals" component={JournalContainer}/>
+
         {/* After creating login functionality, add <WelcomeContainer/> with name of user inside.*/}
-        <JournalContainer/>
         <TrailsContainer/>
-        {/* <LoginContainer/> */}
+
+        <JournalContainer/>
+        {/* <LoginContainer */}
      </div>
    );
   }
