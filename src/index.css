@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  /* margin: 0; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,10 +19,26 @@ code {
 }
 
 .trail {
+  display: inline-block;
+  width: 44%;
+  margin: 2%;
+  vertical-align: top;
   font-weight: 400;
-  background-color: #cfda6d
+  background-color: #cfda6d;
+  min-height: 600px;
+}
+
+.trail p {
+  margin: 0 3% 0 3%;
 }
 
 .trail img {
-  max-width: 400px;
+  width: 50%;
+  height: auto;
+}
+
+.journal-container {
+  float: right;
+  border: 2px solid red;
+  width: 10%;
 }

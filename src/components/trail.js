@@ -9,7 +9,7 @@ const Trail = (props) => {
       
         return (
             <div>
-                {/* {props.trails} */}
+
             </div>
         )
     

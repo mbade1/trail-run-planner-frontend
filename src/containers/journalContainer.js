@@ -4,8 +4,10 @@ import {connect} from 'react-redux'
 class JournalContainer extends React.Component {
     render() {
         return (
-            <div>
+            <div className="journal-container">
                 JOURNAL CONTAINER
+                <br/>
+                This is where<br/>the user's journal<br/>will be clickable<br/>to access and view.
             </div>
         )
     }

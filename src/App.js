@@ -20,9 +20,10 @@ class App extends React.Component {
   render() {
   return (
      <div className="App">
-        {/* <TrailsContainer/>
-        <JournalContainer/> */}
-        <LoginContainer/>
+        {/* After creating login functionality, add <WelcomeContainer/> with name of user inside.*/}
+        <JournalContainer/>
+        <TrailsContainer/>
+        {/* <LoginContainer/> */}
      </div>
    );
   }
