@@ -1,4 +1,5 @@
 import setUser from '../actions/actions'
+import AddUser from '../reducers/reducer'
 const SignUpFetch = (username, email, password) => {  
   return(dispatch) => {
   fetch("http://localhost:3000/users", {
@@ -22,6 +23,7 @@ const SignUpFetch = (username, email, password) => {
       localStorage.setItem('token', newUser.token);
       getUser()
       .then(user => {
+        setUser(user)
         dispatch({type: 'ADD_USER', payload: user})
       })
     }

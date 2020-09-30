@@ -2,7 +2,7 @@ export default function setUser(user) {
     return {
       type: "SET_USER",
       payload: {
-        currentUser: user
+        user: user
       }
     }
   }

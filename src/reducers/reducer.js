@@ -1,7 +1,7 @@
 const initialState = {
     trails: [],
-    user: '',
-    journals: []
+    user: [],
+    journals: [],
 }
 
 const Reducer = (state = initialState, action) => {
@@ -12,6 +12,7 @@ const Reducer = (state = initialState, action) => {
                 trails: action.payload.trails
             }
         case 'ADD_USER':
+            debugger
             return {
                 ...state,
                 user: [...state.user, action.payload.user]
