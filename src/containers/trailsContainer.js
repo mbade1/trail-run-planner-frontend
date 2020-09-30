@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Route, Switch} from 'react-router-dom'
 import {fetchCityAndTrails} from '../fetchCalls/Trails'
 import Trails from '../components/Trails'
 import TrailSearch from '../components/TrailSearch'

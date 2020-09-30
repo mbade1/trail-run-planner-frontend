@@ -20,6 +20,7 @@ class SignUp extends React.Component {
         event.preventDefault()
         SignUpFetch(this.state.username, this.state.email, this.state.password)
         this.props.history.push('/trails');
+        debugger
         
         this.setState({
             username: this.state.username, 
@@ -50,4 +51,11 @@ class SignUp extends React.Component {
     }
 }
 
-export default connect(null, {SignUpFetch})(withRouter(SignUp))
+
+const mapStateToProps = state => {
+    return {
+      user: state.user
+    }
+  }
+
+export default connect(mapStateToProps, {SignUpFetch})(withRouter(SignUp))
