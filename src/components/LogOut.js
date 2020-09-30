@@ -1,17 +1,26 @@
 import React from 'react'
-import LogOutFetch from '../actions/LogOut'
+import LogOutFetch from '../fetchCalls/LogOut'
+import { withRouter } from 'react-router';
 
-const LogOut = ({ to = "/login", history }) => {
+
+const LogOut = ({ to = "/", history }) => {
     
     return (
-        <div onClick={() => {
+        <div>
+            <br/>
+            <h1>Are you sure you want to Log Out?</h1>
+            <div onClick={() => {
             LogOutFetch();
+            history.push(to);
         }}>
-            Log Out
+            <p>If yes, click here.</p> 
         </div>
+        </div>
+        
+
     )
 }
 
-export default LogOut
+export default withRouter(LogOut)
 
 

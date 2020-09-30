@@ -1,5 +1,5 @@
 import React from 'react'
-import SignUpFetch from '../actions/SignUpFetch'
+import SignUpFetch from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
 
 

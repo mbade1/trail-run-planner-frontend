@@ -1,4 +1,4 @@
-import setUser from './actions'
+import setUser from '../actions/actions'
 
 const LogInFetch = (username, password) => {
       fetch("http://localhost:3000/users", {

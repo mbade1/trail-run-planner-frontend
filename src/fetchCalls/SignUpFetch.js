@@ -1,6 +1,6 @@
-import setUser from './actions'
+import setUser from '../actions/actions'
 const SignUpFetch = (username, email, password) => {  
-  // return(dispatch) => {
+  return(dispatch) => {
   fetch("http://localhost:3000/users", {
     method: 'POST',
     headers: {
@@ -29,11 +29,7 @@ const SignUpFetch = (username, email, password) => {
       alert(newUser.errors)
     }
   })
-  // .then(newUser => dispatch({
-  //   type: 'ADD_USER',
-  //   payload: newUser
-  // }))  
-  //}
+}
 }
 function getUser() {
   let token = localStorage.getItem('token')

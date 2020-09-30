@@ -1,5 +1,5 @@
 import React from 'react'
-import LogInFetch from '../actions/LogInFetch'
+import LogInFetch from '../fetchCalls/LogInFetch'
 import { withRouter } from 'react-router-dom';
 
 
