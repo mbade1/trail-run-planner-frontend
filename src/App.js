@@ -15,9 +15,11 @@ import Home from './components/Home'
 class App extends React.Component {r
 
   render() {
+    debugger
   return (
      <div className="App">
-      <NavBar/>
+
+      <NavBar props={this.props}/>
      </div>
    );
   }

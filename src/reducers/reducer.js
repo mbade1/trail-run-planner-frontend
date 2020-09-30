@@ -1,3 +1,5 @@
+
+
 const initialState = {
     trails: [],
     users: []

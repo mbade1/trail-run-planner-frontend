@@ -13,6 +13,6 @@ export const journalPost = (hiker_project_id) => {
         })
         })
         .then(response => response.json())
-        .then(newUser => console.log(newUser))
+        .then(newJournalEntry => console.log(newJournalEntry))
     }
 }
