@@ -1,15 +1,8 @@
 import React from 'react'
-import signUp from '../actions/User'
+import SignUpFetch from '../actions/SignUpFetch'
 
 
 class SignUp extends React.Component {
-    // render() {
-    //     return (
-    //         <div className="SignUp">
-    //             <h1>SIGNUP</h1>
-    //         </div>
-    //     )
-    // }
 
     constructor(props) {
         super(props);
@@ -17,7 +10,6 @@ class SignUp extends React.Component {
     }
 
     handleChange = (event) => {
-        console.log(event)
         this.setState({
           [event.target.name]: event.target.value
         })
@@ -26,7 +18,7 @@ class SignUp extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         //if the name of the city has a space in it, split the city string into an array and join with +.
-        this.props.signUp(this.state.username, this.state.email, this.state.password)
+        SignUpFetch(this.state.username, this.state.email, this.state.password)
         this.setState({
             username: '', 
             email: '', 

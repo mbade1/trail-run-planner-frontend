@@ -15,10 +15,8 @@ import Home from './components/Home'
 class App extends React.Component {r
 
   render() {
-    debugger
   return (
      <div className="App">
-
       <NavBar props={this.props}/>
      </div>
    );
@@ -33,7 +31,9 @@ const mapStateToProps = (state) => {
 }
 
 function mapDispatchToProps(dispatch){
-  return { fetchTrails: () => dispatch(Reducer()) }
+  return { fetchTrails: () => dispatch(Reducer()),
+    SignUpFetch: () => dispatch(Reducer())
+  }
 }
 
 //used to add something to our store or dispatch new actions to our store directly from this comp.

@@ -22,7 +22,6 @@ a:hover {
   color: #aa9f0a
 }
 
-
 .Home, .LogIn, .SignUp {
   background: url('./images/trail-background.jpg') no-repeat center fixed;
   -webkit-background-size: cover;
@@ -36,13 +35,6 @@ a:hover {
   color: rgb(230, 220, 220);
 }
 
-.Home h1, .LogIn h1 {
-  position: relative;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%)
-}
-
 .Home p {
   position: relative;
   top: 25%;
@@ -52,7 +44,22 @@ a:hover {
   font-size: 1.5em;
 }
 
-.sign-up-form-container {
+.home-container {
+  color: rgb(34, 33, 33);
+  position: relative;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  height: auto;
+  width: 50%;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  vertical-align: top;
+}
+
+.sign-up-form-container, .login-container {
   color: rgb(34, 33, 33);
   position: relative;
   top: 35%;
@@ -62,7 +69,8 @@ a:hover {
   height: auto;
   width: 30%;
   border-radius: 10px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   vertical-align: top;
 }
 
