@@ -14,20 +14,20 @@ class Trails extends React.Component {
 
     handleChange = (event) => {
         this.setState({
-          [event.target.name]: event.target.value
+          dateOfRun: event.target.value
         })
     }
 
     handleSubmit = event => {
         event.preventDefault()
+        //function call to post into user's journal: PostRunToJournal(this.state.dateOfRun)
+        //optional: this.props.history.push('/users/:id/journals)
         console.log(event)
-        debugger
+        this.setState({
+            dateOfRun: this.state.dateOfRun
+        })
     }
 
-    renderImages(image) {
-
-    }
-    
     render() {
         return (
             <div className="trails">
@@ -35,7 +35,8 @@ class Trails extends React.Component {
                 <div key={trail.id} className='trail'>
                     <img src={trail.imgMedium || ImageNotFound}/>
                     <h2>{trail.name}</h2>
-                    <Iframe url={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}`}
+                    {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}} */}
+                    <Iframe url={`http://google.com`}
                     width="250px"
                     height="250px"
                     id="myId"
@@ -47,12 +48,18 @@ class Trails extends React.Component {
                     <br/><br/>
                     <b><u>Difficulty:</u></b> {trail.difficulty} 
                     <br/><br/><b><u>Rating:</u></b> {trail.stars} out of {trail.starVotes} votes
+                    <br/><br/><b><u>Latest Conditions:</u></b> {trail.conditionStatus} {trail.conditionDetails}
+                    <br/><br/>
+                    <h4>Add Run to Journal:</h4>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="datetime-local" onChange={(event) => this.handleChange(event)} value={this.state.dateOfRun}/>
+                        <input type="submit" value="Add Run"/>
+                    </form>
                 </p>
                 
                 </div>
                 )}
                 {/* <Trail trails={props.trails}/> */}
-                {/*/ AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ */}
             </div>
           )
 
