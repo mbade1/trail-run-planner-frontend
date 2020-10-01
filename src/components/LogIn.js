@@ -1,6 +1,9 @@
 import React from 'react'
 import LogInFetch from '../fetchCalls/LogInFetch'
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import setUser  from '../actions/actions';
+
 
 
 
@@ -19,7 +22,7 @@ class LogIn extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         LogInFetch(this.state.username, this.state.password)
-        this.props.history.push('/trails');
+        this.props.history.push('/');
         this.setState({
             username: '', 
             email: '', 
@@ -47,4 +50,10 @@ class LogIn extends React.Component {
     }
 }
 
-export default withRouter(LogIn)
+function mapDispatchToProps(dispatch) {
+    return {
+      setUser: (currentUser) => dispatch(setUser(currentUser)),
+    }
+  }
+
+export default withRouter(connect(null, mapDispatchToProps)(LogIn));

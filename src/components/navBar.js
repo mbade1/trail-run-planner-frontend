@@ -22,7 +22,7 @@ const NavBar = (props) => {
                     LogOutFetch();
                     // history.push('/');
                 }}>
-             LogOut
+             Log Out
         </span></Link>
             </div>    
             :
@@ -57,7 +57,7 @@ const NavBar = (props) => {
 
 
 function isLoggedIn() {
-    return !!localStorage.getItem('token')
+    return !!localStorage.getItem('id')
 }
 
 export default NavBar

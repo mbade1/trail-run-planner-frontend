@@ -4,4 +4,4 @@ const LogOutFetch = () => {
     localStorage.removeItem('state');
 }
 
-export default LogOutFetch
+export default LogOutFetch 
