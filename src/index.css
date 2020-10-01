@@ -50,7 +50,7 @@ a:hover {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   height: auto;
   width: 50%;
   border-radius: 10px;
@@ -65,7 +65,7 @@ a:hover {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   height: auto;
   width: 30%;
   border-radius: 10px;
@@ -91,11 +91,22 @@ a:hover {
   /* text-align: left; */
 }
 
+.trails-container {
+  background: url('./images/trail-background.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 5px;
+}
+
 
 .trail-search {
+  background-color: rgba(255, 255, 255, 0.6);
   border: 2px solid black;
+  border-radius: 5px;
   width: 75%;
-  margin: 2% auto;
+  margin: 1% auto;
 }
 
 .trail {
@@ -104,19 +115,28 @@ a:hover {
   margin: 2%;
   vertical-align: top;
   font-weight: 400;
-  background-color: #cfda6d;
-  /* min-height: 600px; */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  min-height: 400px;
+}
+
+.trail iframe {
+  float: left;
+  margin: 0 1% 2% 2%;
+  border: none;
+  border-radius: 5px;
 }
 
 .trail p {
   margin: 0 3% 0 3%;
+  text-align: left;
 }
 
 .trail img {
+  text-align: center;
   max-height: 250px;
-  max-width: auto;
+  width: auto;
   height: auto;
-  width: 100%;
   margin-top: 5%;
 }
 
