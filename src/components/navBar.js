@@ -18,13 +18,12 @@ const NavBar = (props) => {
         <div>
         {isLoggedIn() ?
             <div className="nav">
-                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Journals</Link> | 
-                <Link to="/logout"><div onClick={() => {
+                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
                     LogOutFetch();
                     // history.push('/');
                 }}>
              LogOut
-        </div></Link>
+        </span></Link>
             </div>    
             :
             <div className="nav">

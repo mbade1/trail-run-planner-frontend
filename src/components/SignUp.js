@@ -19,14 +19,12 @@ class SignUp extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         SignUpFetch(this.state.username, this.state.email, this.state.password)
-        this.props.history.push('/trails');
-        debugger
-        
         this.setState({
             username: this.state.username, 
             email: this.state.email, 
             password: this.state.password
         })
+        this.props.history.push('/trails');
     }
 
     render() {
