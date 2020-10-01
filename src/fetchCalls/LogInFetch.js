@@ -1,7 +1,7 @@
 import setUser from '../actions/actions'
 
 const LogInFetch = (username, password) => {
-      fetch("http://localhost:3000/users", {
+      fetch("http://localhost:3000/sessions", {
         method: 'POST',
         headers: {
           "Content-Type": 'application/json'
@@ -10,7 +10,7 @@ const LogInFetch = (username, password) => {
       })
       .then(response => response.json())
       .then(loggedInUser => {
-        if (loggedInUser) {
+        if (loggedInUser.id) {
           localStorage.setItem('id', loggedInUser.id);
           localStorage.setItem('token', loggedInUser.token);
           getUser()
@@ -40,15 +40,3 @@ const LogInFetch = (username, password) => {
     })
   }
 export default LogInFetch
-
-
-
-// login(username, password) {
-//   return fetch(`http://localhost:3000/api/v1/sessions/`, {
-//     method: 'POST',
-//     headers: {
-//       "Content-Type": 'application/json'
-//     },
-//     body: JSON.stringify({ username, password })
-//   });
-// }

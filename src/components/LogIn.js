@@ -18,10 +18,8 @@ class LogIn extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        //if the name of the city has a space in it, split the city string into an array and join with +.
         LogInFetch(this.state.username, this.state.password)
         this.props.history.push('/trails');
-        debugger
         this.setState({
             username: '', 
             email: '', 

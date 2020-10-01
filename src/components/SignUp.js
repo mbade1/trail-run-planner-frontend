@@ -2,6 +2,7 @@ import React from 'react'
 import SignUpFetch from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux' 
+import setUser  from '../actions/actions'
 
 class SignUp extends React.Component {
 
@@ -49,11 +50,15 @@ class SignUp extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => {
+function mapStateToProps(state) {
     return {
       user: state.user
     }
   }
+function mapDispatchToProps(dispatch) {
+      return {
+          setUser: (currentUser) => dispatch(setUser(currentUser))
+      }
+  }
 
-export default connect(mapStateToProps, {SignUpFetch})(withRouter(SignUp))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
