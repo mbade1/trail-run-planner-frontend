@@ -1,16 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import JournalFetch from '../fetchCalls/JournalFetch'
+import Journal from '../components/Journal'
 
 class JournalContainer extends React.Component {
     render() {
         return (
             <div className="journal-container">
-                JOURNAL CONTAINER
-                <br/>
-                This is where<br/>the user's journal<br/>will be clickable<br/>to access and view.
+                <Journal journal={this.props.journal}/>
+
             </div>
         )
     }
 }
 
-export default JournalContainer
+const mapStateToProps = state => {
+    return {
+      journal: state.journal
+    }
+  }
+
+
+
+
+export default connect(mapStateToProps, {JournalFetch})(JournalContainer)

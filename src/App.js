@@ -18,13 +18,15 @@ class App extends React.Component {r
 //used to see what is IN our store.
 const mapStateToProps = (state) => {
   return {
-    example: state.example
+    user: state.user,
+    trails: state.trails,
+    journals: state.journals
   }
 }
 
 function mapDispatchToProps(dispatch){
-  return { fetchTrails: () => dispatch(Reducer()),
-    SignUpFetch: () => dispatch(Reducer()),
+  return {     SignUpFetch: () => dispatch(Reducer()),
+    fetchTrails: () => dispatch(Reducer()),
     LogInFetch: () => dispatch(Reducer())
   }
 }

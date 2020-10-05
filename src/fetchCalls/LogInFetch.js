@@ -36,7 +36,7 @@ const LogInFetch = (username, password) => {
     .then(resp => resp.json())
     .then(users => {
       const id = localStorage.getItem('id')
-      return users.find(user => user.id == id)
+      return users.find(user => user.id === id)
     })
   }
 export default LogInFetch

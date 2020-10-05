@@ -1,6 +1,6 @@
 const initialState = {
     trails: [],
-    user: [],
+    user: '',
     journals: [],
 }
 
@@ -15,9 +15,10 @@ const Reducer = (state = initialState, action) => {
             debugger
             return {
                 ...state,
-                user: [...state.user, action.payload.user]
+                user: action.payload.user
             }
         case "SET_USER":
+            debugger
             return {
                 ...state,
                 user: action.payload

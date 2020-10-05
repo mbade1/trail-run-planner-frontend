@@ -10,54 +10,60 @@ import LogOutFetch from '../fetchCalls/LogOut'
 
 
 
-const NavBar = (props) => {
+class NavBar extends React.Component {
 
- return (
-    <Router>
-        
-        <div>
-        {isLoggedIn() ?
-            <div className="nav">
-                <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
-                    LogOutFetch();
-                    // history.push('/');
-                }}>
-             Log Out
-        </span></Link>
-            </div>    
-            :
-            <div className="nav">
-                <Link to="/">Home</Link> | <Link to="/login">Log In</Link> | <Link to="/signup">Sign Up</Link>    
-            </div>
-        }
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/trails">
-                    <TrailsContainer />
-                </Route>
-                <Route path="/users/:user/journals">
-                    <JournalContainer />
-                </Route>
-                <Route exact path="/login">
-                    <LogIn />
-                </Route>
-                <Route exact path="/signup">
-                    <SignUp />
-                </Route>
-                <Route exact path="/logout">
-                    <LogOut />
-                </Route>
-            </Switch>
-        </div>
-    </Router>
-    )
+    componentDidMount() {
+        isLoggedIn()
+    }
+
+    render() {
+        return (
+            <Router>
+                <div>
+                {isLoggedIn() ?
+                    <div className="nav">
+                        <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
+                            LogOutFetch();
+                            // history.push('/');
+                        }}>
+                     Log Out
+                </span></Link>
+                    </div>    
+                    :
+                    <div className="nav">
+                        <Link to="/">Home</Link> | <Link to="/login">Log In</Link> | <Link to="/signup">Sign Up</Link>    
+                    </div>
+                }
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/trails">
+                            <TrailsContainer />
+                        </Route>
+                        <Route path="/users/:user/journals">
+                            <JournalContainer />
+                        </Route>
+                        <Route exact path="/login">
+                            <LogIn />
+                        </Route>
+                        <Route exact path="/signup">
+                            <SignUp />
+                        </Route>
+                        <Route exact path="/logout">
+                            <LogOut />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+            )
+    }
 }
 
 
 function isLoggedIn() {
-    return !!localStorage.getItem('id')
+    let result = !!localStorage.getItem('id')
+    return result  
 }
 
 export default NavBar

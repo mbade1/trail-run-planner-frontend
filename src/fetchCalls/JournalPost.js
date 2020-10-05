@@ -1,5 +1,7 @@
-export const journalPost = (hiker_project_id) => {
+const JournalPost = (userId, hiker_project_id) => {
+  debugger
     return(dispatch) => {
+      debugger
         fetch(`http://localhost:3000/users/${userId}/journals`, {
       method: 'POST',
       headers: {
@@ -16,3 +18,5 @@ export const journalPost = (hiker_project_id) => {
         .then(newJournalEntry => console.log(newJournalEntry))
     }
 }
+
+export default JournalPost

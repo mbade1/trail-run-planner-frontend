@@ -1,6 +1,4 @@
 import React from 'react'
-import Trail from './Trail'
-
 
 class TrailSearch extends React.Component {
     constructor(props) {

@@ -1,14 +1,14 @@
 import React from 'react'
-import SignUpFetch from '../fetchCalls/SignUpFetch'
+import { SignUpFetch } from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux' 
-import setUser  from '../actions/actions'
+import Reducer from '../reducers/reducer'
 
 class SignUp extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: '', username: '', email: '', password: ''};
+        this.state = {user: '', email: '', password: ''};
     }
 
     handleChange = (event) => {
@@ -21,9 +21,9 @@ class SignUp extends React.Component {
         event.preventDefault()
         SignUpFetch(this.state.username, this.state.email, this.state.password)
         this.setState({
-            username: this.state.username, 
-            email: this.state.email, 
-            password: this.state.password
+            username: '', 
+            email: '', 
+            password: ''
         })
         this.props.history.push('/');
     }
@@ -50,15 +50,56 @@ class SignUp extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-      user: state.user
-    }
-  }
-function mapDispatchToProps(dispatch) {
+
+
+
+// option 1:
+const mapStateToProps = state => {
       return {
-          setUser: (currentUser) => dispatch(setUser(currentUser))
+          user: state.user
       }
   }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
+export default withRouter(connect(mapStateToProps, {SignUpFetch})(SignUp))
+
+// option 2:
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         SignUpFetch: () => dispatch(Reducer())
+//     }
+// }
+
+// const mapStateToProps = (state) => {
+//     debugger
+//     return {
+//       user: state.user,
+//       trails: state.trails,
+//       journals: state.journals
+//     }
+//   }
+
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
+
+
+
+
+
+
+//option 3?
+
+// import setUser  from '../actions/actions'
+
+// function mapStateToProps(state) {
+//     return {
+//       username: state.username,
+//       email: state.email
+//     }
+//   }
+
+// const mapStateToProps = state => {
+//     return {
+//       trails: state.trails
+//     }
+//   }
+
+// export default connect(mapStateToProps, {fetchCityAndTrails})(TrailsContainer)

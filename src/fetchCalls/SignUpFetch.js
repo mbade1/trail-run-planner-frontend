@@ -1,6 +1,9 @@
-import setUser from '../actions/actions'
+// import setUser from '../actions/actions'
 
-const SignUpFetch = (username, email, password) => {  
+export const SignUpFetch = (username, email, password) => {  
+  debugger
+  return (dispatch) => {
+    debugger
   fetch("http://localhost:3000/users", {
     method: 'POST',
     headers: {
@@ -18,18 +21,20 @@ const SignUpFetch = (username, email, password) => {
   .then(response => response.json()) 
   .then(newUser => {
     if (newUser) {
-      localStorage.setItem('id', newUser.id);
-      localStorage.setItem('token', newUser.token);
+      localStorage.setItem('id', newUser.id)
       getUser()
-      .then(user => {
-        setUser(user);
-      })
+      .then(user => console.log(user))  
+      
+      //dispatch({
+      //   type: 'ADD_USER', 
+      //   payload: user
+      // })
     }
     else {
       alert(newUser.errors)
     }
   })
-
+ }
 }
 function getUser() {
   let token = localStorage.getItem('token')
@@ -44,8 +49,7 @@ function getUser() {
   .then(resp => resp.json())
   .then(users => {
     const id = localStorage.getItem('id')
-    return users.find(user => user.id == id)
+    return users.find(user => user.id === id)
   })
 }
 
-export default SignUpFetch

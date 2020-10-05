@@ -1,14 +1,16 @@
 import React from 'react'
-import Trail from './Trail'
 import ImageNotFound from '../images/picture-not-found.jpg'
 import Iframe from 'react-iframe'
+import {connect} from 'react-redux'
+import JournalPost from '../fetchCalls/JournalFetch'
 
 class Trails extends React.Component {
     constructor() {
         super();
         this.state = {
             journal: '',
-            dateOfRun: ''
+            dateOfRun: '',
+            user: ''
         }
     }
 
@@ -23,6 +25,9 @@ class Trails extends React.Component {
         //function call to post into user's journal: PostRunToJournal(this.state.dateOfRun)
         //optional: this.props.history.push('/users/:id/journals)
         console.log(event)
+        let userId = window.localStorage['id']
+        debugger
+        JournalPost(userId, this.state.dateOfRun)
         this.setState({
             dateOfRun: this.state.dateOfRun
         })
@@ -33,7 +38,7 @@ class Trails extends React.Component {
             <div className="trails">
                 {this.props.trails.map(trail => 
                 <div key={trail.id} className='trail'>
-                    <img src={trail.imgMedium || ImageNotFound}/>
+                    <img src={trail.imgMedium || ImageNotFound} alt={`${trail.name} trailhead`}/>
                     <h2>{trail.name}</h2>
                     {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}} */}
                     <Iframe url={`http://google.com`}
@@ -53,6 +58,7 @@ class Trails extends React.Component {
                     <h4>Add Run to Journal:</h4>
                     <form onSubmit={this.handleSubmit}>
                         <input type="datetime-local" onChange={(event) => this.handleChange(event)} value={this.state.dateOfRun}/>
+                        <input type="hidden" value={trail.id}/>
                         <input type="submit" value="Add Run"/>
                     </form>
                 </p>
@@ -67,4 +73,14 @@ class Trails extends React.Component {
     
 }
 
-export default Trails
+
+const mapStateToProps = state => {
+    return {
+      dateOfRun: state.dateOfRun
+    }
+  }
+
+
+
+
+export default connect(mapStateToProps, {JournalPost})(Trails)
