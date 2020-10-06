@@ -5,12 +5,10 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
     4: npm start
 
 
-Added: loginContainer, journalContainer, imported trail image, and changed App.js to only render loginContainer
 
-
-MAKE FETCH CALL TO GET WEATHER FOR COORDINATES AS WELL?????????
-    - Have a Weather container at the top of the search page that gets the coordinates. 3 Asynch fetch calls made (geolocation, trails, and weather)
-    - Display temperature, %rain, etc...
-
-
-Saving trails into db - need to have a fetch call to search trails by ID when User pulls up individual trails.
+OCTOBER 7TH:
+    - Posting trail into Journal; plan what is needed (trail ID, user ID)
+        - fetch request: `/users/:user_id/journals`                                                     
+        - journal controller: #create with params of the dateOfRun and hikerProjectId???
+    - GET trails from users' journal and make req to hiker API, while also rendering same info. 
+        - Create buttons or check/minus for each item to be packed.

@@ -1,5 +1,4 @@
 import React from 'react'
-import { signUpFetch } from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux' 
 import Reducer from '../reducers/reducer'
@@ -41,7 +40,6 @@ class SignUp extends React.Component {
                 setUser(user);
               })
               this.props.history.push("/trails");
-              
             } else {
               alert('Username must be unique.')
             }
@@ -98,7 +96,7 @@ function getUser() {
       const id = localStorage.getItem('id')
       return users.find(user => user.id === id)
     })
-  }
+}
 
 
 
