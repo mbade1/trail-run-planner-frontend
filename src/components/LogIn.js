@@ -1,16 +1,12 @@
 import React from 'react'
-import LogInFetch from '../fetchCalls/LogInFetch'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import setUser  from '../actions/actions';
 
-
-
-
 class LogIn extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', username: '', email: '', password: ''};
+        this.state = {value: '', username: '', password: ''};
     }
 
     handleChange = (event) => {
@@ -21,13 +17,28 @@ class LogIn extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        LogInFetch(this.state.username, this.state.password)
-        this.props.history.push('/');
-        this.setState({
-            username: '', 
-            email: '', 
-            password: ''
-        })
+        fetch(`http://localhost:3000/login`, {
+            method: 'POST',
+            headers: {
+              "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(this.state)
+          })
+            .then(res => res.json())
+            .then(newUser => {
+              if (newUser.id) {
+                localStorage.setItem('id', newUser.id);
+                localStorage.setItem('user', newUser.username)
+                this.state.username = newUser.username
+                getUser()
+                .then(user => {
+                  setUser(user);
+                })
+                this.props.history.push("/trails");
+            } else {
+                alert('Username is not unique or password must be at least 6 characters.')
+              }
+            })
     }
 
     render() {
@@ -57,3 +68,21 @@ function mapDispatchToProps(dispatch) {
   }
 
 export default withRouter(connect(null, mapDispatchToProps)(LogIn));
+
+
+
+function getUser() {
+    let config = {
+      method: 'GET',
+        headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json',
+      }
+    }
+    return fetch('http://localhost:3000/users', config)
+    .then(resp => resp.json())
+    .then(users => {
+      const id = localStorage.getItem('id')
+      return users.find(user => user.id === id)
+    })
+  }

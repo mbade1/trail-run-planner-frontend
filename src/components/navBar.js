@@ -51,9 +51,9 @@ class NavBar extends React.Component {
                         <Route exact path="/signup">
                             <SignUp props={this.props}/>
                         </Route>
-                        {/* <Route exact path="/logout">
+                        <Route exact path="/logout">
                             <LogOut />
-                        </Route> */}
+                        </Route>
                     </Switch>
                 </div>
             </Router>

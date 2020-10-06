@@ -12,6 +12,7 @@ const LogOut = ({ to = "/", history }) => {
             <div onClick={() => {
             LogOutFetch();
             history.push(to);
+            window.localStorage.clear()
         }}>
             <p>If yes, click here.</p> 
         </div> 

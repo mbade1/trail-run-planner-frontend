@@ -32,13 +32,14 @@ class SignUp extends React.Component {
             if (newUser.id) {
               localStorage.setItem('id', newUser.id);
               localStorage.setItem('user', newUser.username)
+              this.state.username = newUser.username
               getUser()
               .then(user => {
                 setUser(user);
               })
               this.props.history.push("/trails");
+              
             } else {
-                debugger
               alert('Username is not unique or password must be at least 6 characters.')
             }
           })
@@ -79,9 +80,7 @@ function mapDispatchToProps(dispatch) {
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
 
 
-
-
-
+//getUser function, to get the new user from the db
 function getUser() {
     let config = {
       method: 'GET',
