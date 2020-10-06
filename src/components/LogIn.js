@@ -29,15 +29,17 @@ class LogIn extends React.Component {
               if (newUser.id) {
                 localStorage.setItem('id', newUser.id);
                 localStorage.setItem('user', newUser.username)
-                this.state.username = newUser.username
                 getUser()
                 .then(user => {
                   setUser(user);
                 })
+                this.setState({
+                    user: newUser.username
+                })
                 this.props.history.push("/trails");
             } else {
-                alert('Username is not unique or password must be at least 6 characters.')
-              }
+                alert('Username must be unique.')
+            }
             })
     }
 
@@ -50,7 +52,7 @@ class LogIn extends React.Component {
                         <p>
                         <b>Username</b>: <input type="text" name="username" onChange={(event) => this.handleChange(event)} value={this.state.username} />
                         <br/><br/>
-                        <b>Password</b>: <input type="text" name="password" onChange={(event) => this.handleChange(event)} value={this.state.password}/> 
+                        <b>Password</b>: <input type="password" name="password" onChange={(event) => this.handleChange(event)} value={this.state.password}/> 
                         <br/><br/>
                         </p>
                         <input type="submit" value="Log In!"></input>

@@ -32,7 +32,10 @@ class SignUp extends React.Component {
             if (newUser.id) {
               localStorage.setItem('id', newUser.id);
               localStorage.setItem('user', newUser.username)
-              this.state.username = newUser.username
+              this.setState({
+                  user: newUser.username
+              })
+              debugger
               getUser()
               .then(user => {
                 setUser(user);
@@ -40,7 +43,7 @@ class SignUp extends React.Component {
               this.props.history.push("/trails");
               
             } else {
-              alert('Username is not unique or password must be at least 6 characters.')
+              alert('Username must be unique.')
             }
           })
       }
@@ -55,7 +58,7 @@ class SignUp extends React.Component {
                         <p>
                         <b>Username</b>: <input type="text" name="user" onChange={(event) => this.handleChange(event)} value={this.state.user} />
                         <br/><br/>
-                        <b>Password</b>: <input type="text" name="password" onChange={(event) => this.handleChange(event)} value={this.state.password}/> 
+                        <b>Password</b>: <input type="password" name="password" onChange={(event) => this.handleChange(event)} value={this.state.password}/> 
                         <br/><br/>
                         </p>
                         <input type="submit" value="Sign Up!"></input>
@@ -73,8 +76,8 @@ const mapStateToProps = state => {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        signUpFetch: () => { dispatch(signUpFetch()) }
-    }
+        user: () => { dispatch(setUser()) }
+      }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
