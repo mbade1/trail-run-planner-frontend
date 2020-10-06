@@ -1,8 +1,56 @@
 // import setUser from '../actions/actions'
 
-export const SignUpFetch = (username, email, password) => {  
+// export const editAccount = (data) => {
+//   return (dispatch) => {
+//     fetch(`http://localhost:3000/api/v1/accounts/${data.id}`, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//       },
+//       method: 'PATCH',
+//       body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(account => dispatch({type: 'EDIT_ACCOUNT', payload: account}))
+//   }
+// }
+
+// export const signUpFetch = (user, email, password) => {
+//   debugger
+//     fetch('http://localhost:3000/users', {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     },
+//     method: 'POST',
+//     body: JSON.stringify({
+//       user: user,
+//       email: email,
+//       password: password
+//     })
+//   })
+//   .then(response => response.json())
+//   .then(user => console.log(user))
+
+//   //dispatch({type: 'ADD_USER', payload: user})
+
+
+// }
+
+
+// export function fetchAstronauts() {
+//   return (dispatch) => {
+//     dispatch({ type: 'START_ADDING_ASTRONAUTS_REQUEST' });
+//     fetch('http://api.open-notify.org/astros.json')
+//       .then(response => response.json())
+//   };
+// }
+
+
+
+export const signUpFetch = (user, email, password) => {  
   debugger
-  return (dispatch) => {
+  return(dispatch) => {
     debugger
   fetch("http://localhost:3000/users", {
     method: 'POST',
@@ -12,7 +60,7 @@ export const SignUpFetch = (username, email, password) => {
     },
     body: JSON.stringify({
       user: {
-        username: username,
+        user: user,
         email: email,
         password: password,
       }
@@ -20,28 +68,23 @@ export const SignUpFetch = (username, email, password) => {
   })
   .then(response => response.json()) 
   .then(newUser => {
-    if (newUser) {
+    if (newUser.id) {
+      debugger
       localStorage.setItem('id', newUser.id)
       getUser()
-      .then(user => console.log(user))  
-      
-      //dispatch({
-      //   type: 'ADD_USER', 
-      //   payload: user
-      // })
+      .then(user => dispatch({ type: 'ADD_USER', payload: user }))
     }
     else {
       alert(newUser.errors)
     }
   })
- }
+  }
 }
 function getUser() {
-  let token = localStorage.getItem('token')
   let config = {
     method: 'GET',
       headers: {
-      "Authorization": token,
+      "Accept": 'application/json',
       "Content-Type": 'application/json',
     }
   }

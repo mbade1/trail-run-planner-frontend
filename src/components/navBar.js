@@ -7,6 +7,7 @@ import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
 import LogOut from '../components/LogOut'
 import LogOutFetch from '../fetchCalls/LogOut'
+import signUpFetch from '../fetchCalls/SignUpFetch'
 
 
 
@@ -48,11 +49,11 @@ class NavBar extends React.Component {
                             <LogIn />
                         </Route>
                         <Route exact path="/signup">
-                            <SignUp />
+                            <SignUp props={this.props}/>
                         </Route>
-                        <Route exact path="/logout">
+                        {/* <Route exact path="/logout">
                             <LogOut />
-                        </Route>
+                        </Route> */}
                     </Switch>
                 </div>
             </Router>

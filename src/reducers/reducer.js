@@ -2,20 +2,22 @@ const initialState = {
     trails: [],
     user: '',
     journals: [],
+    fetchTrails: false
 }
 
-const Reducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_TRAILS':
             return {
                 ...state,
-                trails: action.payload.trails
+                trails: action.payload.trails,
+                fetchTrails: true
             }
         case 'ADD_USER':
             debugger
             return {
                 ...state,
-                user: action.payload.user
+                user: action.payload
             }
         case "SET_USER":
             debugger
@@ -29,4 +31,4 @@ const Reducer = (state = initialState, action) => {
     }
 }
 
-export default Reducer;
+export default rootReducer;

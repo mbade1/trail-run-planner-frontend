@@ -1,9 +1,18 @@
 export default function setUser(user) {
     return {
-      type: "SET_USER",
+      type: "ADD_USER",
       payload: {
         user: user
       }
     }
   }
 
+
+  // export function setUser(user) {
+  //   return {
+  //     type: "SET_USER",
+  //     payload: {
+  //       currentUser: user
+  //     }
+  //   }
+  // }

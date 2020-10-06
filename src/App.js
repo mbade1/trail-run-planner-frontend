@@ -4,10 +4,19 @@ import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
 import Reducer from './reducers/reducer';
 
-class App extends React.Component {r
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props)
+  // }
+
+  // componentDidMount() {
+  //   if (localStorage.getItem('id')) {
+  //     this.props.loggedIn()
+  //   }
+  // }
 
   render() {
-  return (
+    return (
      <div className="App">
       <NavBar props={this.props}/>
      </div>
@@ -25,7 +34,7 @@ const mapStateToProps = (state) => {
 }
 
 function mapDispatchToProps(dispatch){
-  return {     SignUpFetch: () => dispatch(Reducer()),
+  return {     signUpFetch: () => dispatch(Reducer()),
     fetchTrails: () => dispatch(Reducer()),
     LogInFetch: () => dispatch(Reducer())
   }

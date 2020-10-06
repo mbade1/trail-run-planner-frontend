@@ -10,7 +10,8 @@ class Trails extends React.Component {
         this.state = {
             journal: '',
             dateOfRun: '',
-            user: ''
+            userId: window.localStorage['id'],
+            hikerProjectId: ''
         }
     }
 
@@ -27,9 +28,9 @@ class Trails extends React.Component {
         console.log(event)
         let userId = window.localStorage['id']
         debugger
-        JournalPost(userId, this.state.dateOfRun)
+        JournalPost(userId, this.state.userId, this.state.dateOfRun)
         this.setState({
-            dateOfRun: this.state.dateOfRun
+            dateOfRun: ''
         })
     }
 
@@ -65,7 +66,6 @@ class Trails extends React.Component {
                 
                 </div>
                 )}
-                {/* <Trail trails={props.trails}/> */}
             </div>
           )
 

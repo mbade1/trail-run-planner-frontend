@@ -1,14 +1,15 @@
 import React from 'react'
-import { SignUpFetch } from '../fetchCalls/SignUpFetch'
+import { signUpFetch } from '../fetchCalls/SignUpFetch'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux' 
 import Reducer from '../reducers/reducer'
+import setUser from '../actions/actions'
 
 class SignUp extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {user: '', email: '', password: ''};
+    constructor() {
+        super();
+        this.state = {user: '', password: ''};
     }
 
     handleChange = (event) => {
@@ -17,17 +18,33 @@ class SignUp extends React.Component {
         })
     }
 
-    handleSubmit = event => {
-        event.preventDefault()
-        SignUpFetch(this.state.username, this.state.email, this.state.password)
-        this.setState({
-            username: '', 
-            email: '', 
-            password: ''
+    handleSubmit = (event) => {
+        event.preventDefault();    
+        fetch(`http://localhost:3000/users`, {
+          method: 'POST',
+          headers: {
+            "Content-Type": 'application/json'
+          },
+          body: JSON.stringify(this.state)
         })
-        this.props.history.push('/');
-    }
+          .then(res => res.json())
+          .then(newUser => {
+            if (newUser.id) {
+              localStorage.setItem('id', newUser.id);
+              localStorage.setItem('user', newUser.username)
+              getUser()
+              .then(user => {
+                setUser(user);
+              })
+              this.props.history.push("/trails");
+            } else {
+                debugger
+              alert('Username is not unique or password must be at least 6 characters.')
+            }
+          })
+      }
 
+    
     render() {
         return (
             <div className="SignUp">              
@@ -35,9 +52,7 @@ class SignUp extends React.Component {
                     <h1>Sign Up</h1>
                     <form onSubmit={this.handleSubmit}>
                         <p>
-                        <b>Username</b>: <input type="text" name="username" onChange={(event) => this.handleChange(event)} value={this.state.username} />
-                        <br/><br/>
-                        <b>Email</b>: <input type="text" name="email" onChange={(event) => this.handleChange(event)} value={this.state.email} />
+                        <b>Username</b>: <input type="text" name="user" onChange={(event) => this.handleChange(event)} value={this.state.user} />
                         <br/><br/>
                         <b>Password</b>: <input type="text" name="password" onChange={(event) => this.handleChange(event)} value={this.state.password}/> 
                         <br/><br/>
@@ -50,24 +65,64 @@ class SignUp extends React.Component {
     }
 }
 
-
-
-
-// option 1:
 const mapStateToProps = state => {
-      return {
-          user: state.user
+    return {
+        user: state.user,
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        signUpFetch: () => { dispatch(signUpFetch()) }
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp))
+
+
+
+
+
+function getUser() {
+    let config = {
+      method: 'GET',
+        headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json',
       }
+    }
+    return fetch('http://localhost:3000/users', config)
+    .then(resp => resp.json())
+    .then(users => {
+      const id = localStorage.getItem('id')
+      return users.find(user => user.id === id)
+    })
   }
 
-export default withRouter(connect(mapStateToProps, {SignUpFetch})(SignUp))
 
-// option 2:
-// function mapDispatchToProps(dispatch) {
+
+
+
+
+
+
+
+
+
+// const mapStateToProps = state => {
 //     return {
-//         SignUpFetch: () => dispatch(Reducer())
+//       trails: state.trails
 //     }
-// }
+//   }
+
+// export default connect(mapStateToProps, {fetchCityAndTrails})(TrailsContainer)
+
+
+
+
+
+
+
+
 
 // const mapStateToProps = (state) => {
 //     debugger

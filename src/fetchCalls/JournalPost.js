@@ -1,7 +1,5 @@
-const JournalPost = (userId, hiker_project_id) => {
+const JournalPost = (userId, hiker_project_id, dateOfRun) => {
   debugger
-    return(dispatch) => {
-      debugger
         fetch(`http://localhost:3000/users/${userId}/journals`, {
       method: 'POST',
       headers: {
@@ -10,13 +8,14 @@ const JournalPost = (userId, hiker_project_id) => {
       },
       body: JSON.stringify({
         journal: {
-          hiker_project_id: hiker_project_id
+          hiker_project_id: hiker_project_id,
+          dateOfRun: dateOfRun
           }
         })
         })
         .then(response => response.json())
         .then(newJournalEntry => console.log(newJournalEntry))
-    }
+    
 }
 
 export default JournalPost
