@@ -87,6 +87,7 @@ a:hover {
 .nav {
   margin-left: 0%;
   font-size: 1.5em;
+  display: inline-block;
   /* background-color: #c7db6d; */
   /* text-align: left; */
 }
@@ -101,7 +102,7 @@ a:hover {
 }
 
 
-.trail-search {
+.trail-search, .journal {
   background-color: rgba(255, 255, 255, 0.8);
   border: 2px solid black;
   border-radius: 5px;
@@ -125,6 +126,8 @@ a:hover {
   margin: 0 1% 2% 2%;
   border: none;
   border-radius: 5px;
+  width: auto;
+  max-width: 60%;
 }
 
 .trail p {
@@ -136,6 +139,7 @@ a:hover {
   text-align: center;
   max-height: 250px;
   width: auto;
+  max-width: 80%;
   height: auto;
   margin-top: 5%;
 }
@@ -148,19 +152,7 @@ a:hover {
   background-size: cover;
   width: 100%;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  height: 750px;
-  border-radius: 5px;
-}
-
-.journal {
-  position: relative;
-  top: 5%;
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
+  /* margin-left: auto;
+  margin-right: auto; */
   border-radius: 5px;
 }

@@ -7,8 +7,5 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
 
 
 OCTOBER 7TH:
-    - Posting trail into Journal; plan what is needed (trail ID, user ID)
-        - fetch request: `/users/:user_id/journals`                                                     
-        - journal controller: #create with params of the dateOfRun and hikerProjectId???
-    - GET trails from users' journal and make req to hiker API, while also rendering same info. 
-        - Create buttons or check/minus for each item to be packed.
+    - Office Hours at 11
+    - Booleans for packing list

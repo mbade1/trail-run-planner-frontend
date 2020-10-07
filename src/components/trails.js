@@ -36,9 +36,16 @@ class Trails extends React.Component {
         let dateOfRun = this.state.dateOfRun
         // JournalPost(userId, this.state.userId, this.state.dateOfRun)
         let hikerProjectId = event.target[1].defaultValue
-        // let allTrailIds = document.querySelectorAll('.trailId');
-    //    let trailId = document.getElementById("trailId").value;
-
+        let imgMedium = event.target[2].defaultValue
+        let name = event.target[3].defaultValue
+        let length = event.target[4].defaultValue
+        let difficulty = event.target[5].defaultValue
+        let stars = event.target[6].defaultValue
+        let starVotes = event.target[7].defaultValue
+        let conditionDetails = event.target[8].defaultValue
+        let conditionStatus = event.target[9].defaultValue
+        let latitude = event.target[10].defaultValue
+        let longitude = event.target[11].defaultValue
 
         debugger
         fetch(`http://localhost:3000/users/${userId}/journals`, {
@@ -50,7 +57,17 @@ class Trails extends React.Component {
             body: JSON.stringify({
               journal: {
                 trailId: hikerProjectId,
-                dateOfRun: dateOfRun
+                dateOfRun: dateOfRun,
+                imgMedium: imgMedium,
+                name: name,
+                length: length,
+                difficulty: difficulty,
+                stars: stars,
+                starVotes: starVotes,
+                conditionDetails: conditionDetails,
+                conditionStatus: conditionStatus,
+                latitude: latitude,
+                longitude: longitude
               }
             })
             })
@@ -71,8 +88,8 @@ class Trails extends React.Component {
                     <h2>{trail.name}</h2>
                     {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}} */}
                     <Iframe url={`http://google.com`}
-                    width="250px"
-                    height="250px"
+                    width="200px"
+                    height="200px"
                     id="myId"
                     className="myClassname"
                     display="initial"
@@ -88,6 +105,16 @@ class Trails extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <input type="date" onChange={(event) => this.handleChange(event)} value={this.state.dateOfRun}/>
                         <input type="hidden" id="trailId" value={trail.id}/>
+                        <input type="hidden" value={trail.imgMedium}/>
+                        <input type="hidden" value={trail.name}/>
+                        <input type="hidden" value={trail.length}/>
+                        <input type="hidden" value={trail.difficulty}/>
+                        <input type="hidden" value={trail.stars}/>
+                        <input type="hidden" value={trail.starVotes}/>
+                        <input type="hidden" value={trail.conditionDetails}/>
+                        <input type="hidden" value={trail.conditionStatus}/>
+                        <input type="hidden" value={trail.latitude}/>
+                        <input type="hidden" value={trail.longitude}/>
                         <input type="submit" value="Add Run"/>
                     </form>
                 </p>

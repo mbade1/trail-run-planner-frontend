@@ -1,7 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux' 
-import Reducer from '../reducers/reducer'
 import setUser from '../actions/actions'
 
 class SignUp extends React.Component {
