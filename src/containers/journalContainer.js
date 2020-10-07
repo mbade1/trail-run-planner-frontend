@@ -4,10 +4,16 @@ import JournalFetch from '../fetchCalls/JournalFetch'
 import Journal from '../components/Journal'
 
 class JournalContainer extends React.Component {
+
+    // componentDidMount() {
+    //     debugger
+    //         let id = window.localStorage['id']
+    //         JournalFetch(id)
+    // }
     render() {
         return (
             <div className="journal-container">
-                <Journal journal={this.props.journal}/>
+                <Journal journal={this.props.journals}/>
 
             </div>
         )
@@ -16,11 +22,11 @@ class JournalContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      journal: state.journal
+      journals: state.journals
     }
   }
 
 
+let id = window.localStorage['id']
 
-
-export default connect(mapStateToProps, {JournalFetch})(JournalContainer)
+export default connect(mapStateToProps, JournalFetch(id))(JournalContainer)

@@ -9,11 +9,6 @@ class Journal extends React.Component {
         }
     }
 
-    componentDidMount() {
-        let id = window.localStorage['id']
-        JournalFetch(id)
-    }
-
     render() {
         return (
             <div className="journal">
