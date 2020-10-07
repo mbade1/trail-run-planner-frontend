@@ -15,7 +15,7 @@ const JournalPost = (userId, hiker_project_id, dateOfRun) => {
         })
         .then(response => response.json())
         .then(newJournalEntry => console.log(newJournalEntry))
-    
 }
 
 export default JournalPost
+

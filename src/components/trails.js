@@ -11,7 +11,7 @@ class Trails extends React.Component {
             journal: '',
             dateOfRun: '',
             userId: window.localStorage['id'],
-            hikerProjectId: ''
+            trailId: ''
         }
     }
 
@@ -21,14 +21,42 @@ class Trails extends React.Component {
         })
     }
 
+    // - Posting trail into Journal; plan what is needed (trail ID, user ID)
+    // - fetch request: `/users/:user_id/journals`                                                     
+    // - journal controller: #create with params of the dateOfRun and hikerProjectId???
+
     handleSubmit = event => {
         event.preventDefault()
         //function call to post into user's journal: PostRunToJournal(this.state.dateOfRun)
         //optional: this.props.history.push('/users/:id/journals)
         console.log(event)
         let userId = window.localStorage['id']
+
+        
+        let dateOfRun = this.state.dateOfRun
+        // JournalPost(userId, this.state.userId, this.state.dateOfRun)
+        let hikerProjectId = event.target[1].defaultValue
+        // let allTrailIds = document.querySelectorAll('.trailId');
+    //    let trailId = document.getElementById("trailId").value;
+
+
         debugger
-        JournalPost(userId, this.state.userId, this.state.dateOfRun)
+        fetch(`http://localhost:3000/users/${userId}/journals`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              journal: {
+                trailId: hikerProjectId,
+                dateOfRun: dateOfRun
+              }
+            })
+            })
+            .then(response => response.json())
+            .then(newJournalEntry => console.log(newJournalEntry))
+
         this.setState({
             dateOfRun: ''
         })
@@ -58,8 +86,8 @@ class Trails extends React.Component {
                     <br/><br/>
                     <h4>Add Run to Journal:</h4>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="datetime-local" onChange={(event) => this.handleChange(event)} value={this.state.dateOfRun}/>
-                        <input type="hidden" value={trail.id}/>
+                        <input type="date" onChange={(event) => this.handleChange(event)} value={this.state.dateOfRun}/>
+                        <input type="hidden" id="trailId" value={trail.id}/>
                         <input type="submit" value="Add Run"/>
                     </form>
                 </p>
@@ -72,7 +100,7 @@ class Trails extends React.Component {
     }
     
 }
-
+//onChange={(event) => this.handleChange(event)} value={this.state.trailId: 
 
 const mapStateToProps = state => {
     return {

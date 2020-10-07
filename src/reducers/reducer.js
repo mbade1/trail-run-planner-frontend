@@ -25,6 +25,12 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload
             }
+        case "ADD_JOURNAL":
+            debugger
+            return {
+                ...state,
+                journals: action.payload
+            }
 
         default:
             return state;
