@@ -1,19 +1,54 @@
-// import setUser from '../actions/actions'
+const signUpFetch = (user, password) => {  
+  debugger
+  return(dispatch) => {
+    debugger
+  fetch("http://localhost:3000/users", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      user: {
+        user: user,
+        password: password,
+      }
+    })
+  })
+  .then(response => response.json()) 
+  .then(newUser => {
+    if (newUser.id) {
+      debugger
+      localStorage.setItem('id', newUser.id)
+      dispatch({ type: 'ADD_USER', payload: newUser })
+    }
+    else {
+      alert(newUser.errors)
+    }
+  })
+  }
+}
+function getUser(id) {
 
-// export const editAccount = (data) => {
-//   return (dispatch) => {
-//     fetch(`http://localhost:3000/api/v1/accounts/${data.id}`, {
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       },
-//       method: 'PATCH',
-//       body: JSON.stringify(data)
-//     })
-//     .then(response => response.json())
-//     .then(account => dispatch({type: 'EDIT_ACCOUNT', payload: account}))
-//   }
-// }
+  fetch(`http://localhost:3000/user/${id}`)
+  .then(resp => resp.json())
+  .then(users => {
+    debugger
+    let found = users.find(user => user.id === id)
+    return found
+  })
+}
+
+
+export default signUpFetch
+
+
+
+
+
+
+
+// import setUser from '../actions/actions'
 
 // export const signUpFetch = (user, email, password) => {
 //   debugger
@@ -45,54 +80,3 @@
 //       .then(response => response.json())
 //   };
 // }
-
-
-
-export const signUpFetch = (user, email, password) => {  
-  debugger
-  return(dispatch) => {
-    debugger
-  fetch("http://localhost:3000/users", {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-      user: {
-        user: user,
-        email: email,
-        password: password,
-      }
-    })
-  })
-  .then(response => response.json()) 
-  .then(newUser => {
-    if (newUser.id) {
-      debugger
-      localStorage.setItem('id', newUser.id)
-      getUser()
-      .then(user => dispatch({ type: 'ADD_USER', payload: user }))
-    }
-    else {
-      alert(newUser.errors)
-    }
-  })
-  }
-}
-function getUser() {
-  let config = {
-    method: 'GET',
-      headers: {
-      "Accept": 'application/json',
-      "Content-Type": 'application/json',
-    }
-  }
-  return fetch('http://localhost:3000/users', config)
-  .then(resp => resp.json())
-  .then(users => {
-    const id = localStorage.getItem('id')
-    return users.find(user => user.id === id)
-  })
-}
-

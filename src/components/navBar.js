@@ -50,7 +50,7 @@ class NavBar extends React.Component {
                             <LogIn />
                         </Route>
                         <Route exact path="/signup">
-                            <SignUp props={this.props}/>
+                            <SignUp />
                         </Route>
                         <Route exact path="/logout">
                             <LogOut />

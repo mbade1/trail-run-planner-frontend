@@ -40,9 +40,6 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-//used to add something to our store or dispatch new actions to our store directly from this comp.
-
-
 //below can also take mapDispatchToProps
 //passing in the mapStateToProps func. The return val of that func is coming from our store. 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
