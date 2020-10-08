@@ -1,6 +1,7 @@
-import setUser from '../actions/actions'
-
-const LogInFetch = (username, password) => {
+const logInFetch = (username, password) => {
+  debugger
+  return(dispatch) => {
+    debugger
       fetch("http://localhost:3000/sessions", {
         method: 'POST',
         headers: {
@@ -12,31 +13,11 @@ const LogInFetch = (username, password) => {
       .then(loggedInUser => {
         if (loggedInUser.id) {
           localStorage.setItem('id', loggedInUser.id);
-          localStorage.setItem('token', loggedInUser.token);
-          getUser()
-          .then(user => {
-          setUser(user)
-        })
+          dispatch({ type: 'SET_USER', payload: loggedInUser})
         } else {
           alert(loggedInUser.errors)
         }
       })
     }
-  
-  function getUser() {
-    let token = localStorage.getItem('token')
-    let config = {
-      method: 'GET',
-        headers: {
-        "Authorization": token,
-        "Content-Type": 'application/json',
-      }
-    }
-    return fetch('http://localhost:3000/users', config)
-    .then(resp => resp.json())
-    .then(users => {
-      const id = localStorage.getItem('id')
-      return users.find(user => user.id === id)
-    })
   }
-export default LogInFetch
+export default logInFetch

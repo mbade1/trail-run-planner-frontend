@@ -25,7 +25,8 @@ const rootReducer = (state = initialState, action) => {
             debugger
             return {
                 ...state,
-                user: action.payload
+                user: action.payload.username,
+                id: action.payload.id
             }
         case "ADD_JOURNAL":
             debugger
