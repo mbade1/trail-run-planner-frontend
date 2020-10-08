@@ -7,6 +7,19 @@ class Journals extends React.Component {
         super();
         this.state = {
             journal: [],
+            tShirt: false,
+            shorts: false,
+            pants: false,
+            jacket: false,
+            map: false,
+            watch: false,
+            cellPhone: false,
+            food: false,
+            water: false,
+            runningPack: false,
+            firstAidPack: false,
+            sunScreen: false,
+            bugSpray: false,
         }
     }
 
@@ -18,7 +31,13 @@ class Journals extends React.Component {
     //     } 
     // }
 
-
+    handleChange = (event) => {
+        console.log(event)
+        this.setState({
+            [event.target.name]: !event.target.value
+          })
+          debugger
+    }
 
     render() {
         debugger
@@ -52,7 +71,7 @@ class Journals extends React.Component {
                             <h2>What to Pack</h2>
                             <h3>Clothing</h3>
                             <p>
-                                T-Shirt: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Shorts: <input type="checkbox" /> &nbsp;&nbsp;&nbsp;| 
+                                T-Shirt: <input type="checkbox" onChange={(event) => this.handleChange(event)} value={this.state.tShirt}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Shorts: <input type="checkbox" /> &nbsp;&nbsp;&nbsp;| 
                                 &nbsp;&nbsp;&nbsp;Pants <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Jacket: <input type="checkbox" />
                                 <br/>
                                 Gloves: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Hat: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|
@@ -83,8 +102,9 @@ class Journals extends React.Component {
             
         } else {
             return (
-                <div>
-                    Loading...
+                <div className='journal-trail'>
+                    <h2>To add a run, click on Trails above</h2>
+                    
                 </div>
             )
         }

@@ -1,5 +1,6 @@
 const JournalFetch = (userId) => {
   return(dispatch) => {
+    debugger
     fetch(`http://localhost:3000/users/${userId}/journals`)
     .then(response => response.json())
     .then(journalTrails => dispatch({

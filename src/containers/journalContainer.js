@@ -6,11 +6,10 @@ import JournalHeader from '../components/JournalHeader'
 
 class JournalContainer extends React.Component {
 
-    // componentDidMount() {
-    //     debugger
-    //         let id = window.localStorage['id']
-    //         JournalFetch(id)
-    // }
+    componentDidMount() {
+            let id = window.localStorage['id']
+            JournalFetch(id)
+    }
     render() {
         return (
             <div className="journal-container">

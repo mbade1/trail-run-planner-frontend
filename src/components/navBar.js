@@ -7,8 +7,12 @@ import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
 import LogOut from '../components/LogOut'
 import LogOutFetch from '../fetchCalls/LogOut'
-
+ 
 class NavBar extends React.Component {
+
+    handleChange = () => {
+        isLoggedIn()
+    }
 
     componentDidMount() {
         isLoggedIn()
@@ -19,16 +23,16 @@ class NavBar extends React.Component {
             <Router>
                 <div>
                 {isLoggedIn() ?
-                    <div className="nav">
-                        <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/users/:user/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
+                    <div className="nav" onChange={() => this.handleChange()}>
+                        <Link to="/" >Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
                             LogOutFetch();
-                            // history.push('/');
+                            // this.props.history.push('/');
                         }}>
                      Log Out
                 </span></Link>
                     </div>    
                     :
-                    <div className="nav">
+                    <div className="nav" onChange={() => this.handleChange()}>
                         <Link to="/">Home</Link> | <Link to="/login">Log In</Link> | <Link to="/signup">Sign Up</Link>    
                     </div>
                 }
@@ -39,7 +43,7 @@ class NavBar extends React.Component {
                         <Route path="/trails">
                             <TrailsContainer />
                         </Route>
-                        <Route path="/users/:user/journals">
+                        <Route path="/journals">
                             <JournalContainer />
                         </Route>
                         <Route exact path="/login">
