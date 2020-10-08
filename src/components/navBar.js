@@ -6,7 +6,7 @@ import Home from '../components/Home'
 import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
 import LogOut from '../components/LogOut'
-import LogOutFetch from '../fetchCalls/LogOut'
+// import LogOutFetch from '../fetchCalls/LogOut'
  
 class NavBar extends React.Component {
 
@@ -24,12 +24,7 @@ class NavBar extends React.Component {
                 <div>
                 {isLoggedIn() ?
                     <div className="nav" onChange={() => this.handleChange()}>
-                        <Link to="/" >Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/journals">Running Journal</Link> | <Link to="/logout"><span onClick={() => {
-                            LogOutFetch();
-                            // this.props.history.push('/');
-                        }}>
-                     Log Out
-                </span></Link>
+                        <Link to="/" >Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/journals">Running Journal</Link> | <Link to="/logout">Log Out</Link>
                     </div>    
                     :
                     <div className="nav" onChange={() => this.handleChange()}>

@@ -34,9 +34,11 @@ const mapStateToProps = (state) => {
 }
 
 function mapDispatchToProps(dispatch){
-  return {     signUpFetch: () => dispatch(Reducer()),
+  return {     
+    signUpFetch: () => dispatch(Reducer()),
     fetchTrails: () => dispatch(Reducer()),
-    LogInFetch: () => dispatch(Reducer())
+    logInFetch: () => dispatch(Reducer()),
+    logOutFetch: () => dispatch(Reducer())
   }
 }
 
