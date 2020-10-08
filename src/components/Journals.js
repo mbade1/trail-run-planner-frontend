@@ -1,10 +1,11 @@
 import React from 'react'
 import Iframe from 'react-iframe'
 import ImageNotFound from '../images/picture-not-found.jpg'
+import journalPatch from '../fetchCalls/JournalPatch'
 
 class Journals extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             journal: [],
             tShirt: false,
@@ -23,24 +24,24 @@ class Journals extends React.Component {
         }
     }
 
-    // componentDidUpdate() {
-    //     debugger
-    //     if (this.props.journals.length >= 1) {
-    //         this.props.journals.map(journalTrail =>
-    //             this.fetchTrails(journalTrail.trail_id))
-    //     } 
-    // }
-
     handleChange = (event) => {
         console.log(event)
         this.setState({
-            [event.target.name]: !event.target.value
+            [event.target.name]: !!event.target.value
           })
           debugger
     }
 
-    render() {
+    handleSubmit = event => {
         debugger
+        console.log(event)
+        let id = window.localStorage['id']
+        
+        journalPatch(id, event.target.id, this.state)
+
+    }
+
+    render() {
         if (this.props.journals.length >= 1) {
             return (
                 <div>
@@ -71,29 +72,33 @@ class Journals extends React.Component {
                             <h2>What to Pack</h2>
                             <h3>Clothing</h3>
                             <p>
-                                T-Shirt: <input type="checkbox" onChange={(event) => this.handleChange(event)} value={this.state.tShirt}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Shorts: <input type="checkbox" /> &nbsp;&nbsp;&nbsp;| 
-                                &nbsp;&nbsp;&nbsp;Pants <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Jacket: <input type="checkbox" />
+                                <form onSubmit={this.handleSubmit} id={journal.id}>
+                                T-Shirt: <input type="checkbox" name="tShirt" onChange={(event) => this.handleChange(event)} value={this.state.tShirt}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Shorts: <input type="checkbox" name="shorts" onChange={(event) => this.handleChange(event)} value={this.state.shorts}/> &nbsp;&nbsp;&nbsp;| 
+                                &nbsp;&nbsp;&nbsp;Pants <input type="checkbox" name="pants" onChange={(event) => this.handleChange(event)} value={this.state.pants} />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Jacket: <input type="checkbox" name="jacket" onChange={(event) => this.handleChange(event)} value={this.state.jacket}/>
                                 <br/>
-                                Gloves: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Hat: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|
-                                &nbsp;&nbsp;&nbsp;Shoes: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Socks: <input type="checkbox" />
-                            </p>
+                                Gloves: <input type="checkbox" name="gloves" onChange={(event) => this.handleChange(event)} value={this.state.gloves} />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Hat: <input type="checkbox" name="hat" onChange={(event) => this.handleChange(event)} value={this.state.hat}/>&nbsp;&nbsp;&nbsp;|
+                                &nbsp;&nbsp;&nbsp;Shoes: <input type="checkbox" name="shoes" onChange={(event) => this.handleChange(event)} value={this.state.shoes} />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Socks: <input type="checkbox" name="socks" onChange={(event) => this.handleChange(event)} value={this.state.socks} />
                             <h3>Maps and Communications</h3>
-                            <p>
-                                Map: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Watch: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|
-                                &nbsp;&nbsp;&nbsp;Cellphone: <input type="checkbox" />
-                            </p>
+                                Map: <input type="checkbox" name="map" onChange={(event) => this.handleChange(event)} value={this.state.map} />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Watch: <input type="checkbox" name="watch" onChange={(event) => this.handleChange(event)} value={this.state.watch}/>&nbsp;&nbsp;&nbsp;|
+                                &nbsp;&nbsp;&nbsp;Cellphone: <input type="checkbox" name="cellPhone" onChange={(event) => this.handleChange(event)} value={this.state.cellPhone}/>
                             <h3>Nutrition</h3>
-                            <p>
-                                Food: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Water: <input type="checkbox" />
-                            </p>
+                                Food: <input type="checkbox" name="food" onChange={(event) => this.handleChange(event)} value={this.state.food}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Water: <input type="checkbox" name="water" onChange={(event) => this.handleChange(event)} value={this.state.water} />
                             <h3>Extra</h3>
-                            <p>
-                                Running Pack: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;First Aid Pack: <input type="checkbox" />
+                                Running Pack: <input type="checkbox" name="runningPack" onChange={(event) => this.handleChange(event)} value={this.state.runningPack} />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                First Aid Pack: <input type="checkbox" name="firstAidPack" onChange={(event) => this.handleChange(event)} value={this.state.firstAidPack} />
                                 <br/>
-                                Sunscreen: <input type="checkbox" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Bugspray: <input type="checkbox" />
-                                <br/><br/>Click here to update Your Run
+                                Sunscreen: <input type="checkbox" name="sunScreen" onChange={(event) => this.handleChange(event)} value={this.state.sunScreen}/>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                Bugspray: <input type="checkbox" name="bugSpray" onChange={(event) => this.handleChange(event)} value={this.state.bugSpray}/>
+                                <br/><br/>
+                                <input type="submit" value="Update Run"/>
+                                </form>
                             </p>
-
                         </div>
                     </div>
                     )}

@@ -1,5 +1,8 @@
 const logOutFetch = (id) => {
   localStorage.removeItem('id');
+
+  //goes to users#destroy
+  
   debugger
   fetch(`http://localhost:3000/users/${id}`, {
     method: 'DELETE',
