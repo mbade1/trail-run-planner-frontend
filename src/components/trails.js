@@ -2,7 +2,7 @@ import React from 'react'
 import ImageNotFound from '../images/picture-not-found.jpg'
 import Iframe from 'react-iframe'
 import {connect} from 'react-redux'
-import JournalPost from '../fetchCalls/JournalFetch'
+import journalPost from '../fetchCalls/JournalPost'
 
 class Trails extends React.Component {
     constructor() {
@@ -138,4 +138,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, {JournalPost})(Trails)
+export default connect(mapStateToProps, {journalPost})(Trails)

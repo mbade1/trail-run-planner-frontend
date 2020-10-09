@@ -1,4 +1,4 @@
-const JournalPost = (userId, hiker_project_id, dateOfRun) => {
+const journalPost = (userId, hiker_project_id, dateOfRun) => {
   debugger
         fetch(`http://localhost:3000/users/${userId}/journals`, {
       method: 'POST',
@@ -17,5 +17,5 @@ const JournalPost = (userId, hiker_project_id, dateOfRun) => {
         .then(newJournalEntry => console.log(newJournalEntry))
 }
 
-export default JournalPost
+export default journalPost
 

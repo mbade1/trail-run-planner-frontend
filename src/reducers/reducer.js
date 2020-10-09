@@ -32,6 +32,7 @@ const rootReducer = (state = initialState, action) => {
         journals: action.payload
       }
     case 'FETCH_JOURNALTRAILS':
+        debugger
       return {
         ...state,
         journals: action.payload

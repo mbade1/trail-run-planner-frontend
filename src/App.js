@@ -5,15 +5,6 @@ import NavBar from './components/NavBar';
 import Reducer from './reducers/reducer';
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
-  // componentDidMount() {
-  //   if (localStorage.getItem('id')) {
-  //     this.props.loggedIn()
-  //   }
-  // }
 
   render() {
     return (
@@ -26,6 +17,7 @@ class App extends React.Component {
 
 //used to see what is IN our store.
 const mapStateToProps = (state) => {
+  debugger
   return {
     user: state.user,
     trails: state.trails,
@@ -37,6 +29,7 @@ function mapDispatchToProps(dispatch){
   return {     
     signUpFetch: () => dispatch(Reducer()),
     fetchTrails: () => dispatch(Reducer()),
+    journalFetch: () => dispatch(Reducer()),
     logInFetch: () => dispatch(Reducer()),
     logOutFetch: () => dispatch(Reducer())
   }
