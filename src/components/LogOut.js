@@ -6,16 +6,17 @@ import {connect} from 'react-redux'
 const LogOut = ({ history}) => {
 
   return (
-    <div>
-      <br/>
+    <div className="LogOut">
+    <div className="logout-container">
       <h1>Are you sure you want to Log Out?</h1>
-      <div onClick={() => {        
+      <div  onClick={() => {        
         localStorage.removeItem('id')
         history.push('/')
         window.location.reload()
       }}>
         <p>If yes, click here.</p> 
       </div> 
+    </div>
     </div>
   )  
 

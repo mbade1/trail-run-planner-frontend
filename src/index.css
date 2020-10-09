@@ -22,7 +22,7 @@ a:hover {
   color: #aa9f0a
 }
 
-.Home, .LogIn, .SignUp {
+.Home, .LogIn, .SignUp, .LogOut {
   background: url('./images/trail-background.jpg') no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -59,7 +59,7 @@ a:hover {
   vertical-align: top;
 }
 
-.sign-up-form-container, .login-container {
+.sign-up-form-container, .login-container, .logout-container {
   color: rgb(34, 33, 33);
   position: relative;
   top: 35%;
@@ -72,6 +72,11 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
   vertical-align: top;
+}
+
+.logout-container {
+  width: 40%;
+  
 }
 
 .sign-up-form-container p {
@@ -123,7 +128,7 @@ a:hover {
 
 .trail iframe, .journal-trail iframe {
   float: left;
-  margin: 0 1% 2% 2%;
+  margin: 0 3% 3% 3%;
   border: none;
   border-radius: 5px;
   width: auto;
@@ -150,7 +155,12 @@ a:hover {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  width: 100%;
+  border-radius: 5px;
+  background: url('./images/trail-background.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   text-align: center;
   border-radius: 5px;
   height: auto;
@@ -165,6 +175,14 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 5px;
   min-height: 400px;
+}
+
+.journal-map-and-info {
+  display: block;
+}
+
+.packingList {
+  display: block;
 }
 
 .packingList p {
