@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Iframe from 'react-iframe'
 import ImageNotFound from '../images/picture-not-found.jpg'
 import journalPatch from '../fetchCalls/JournalPatch'
@@ -7,11 +7,14 @@ class Journals extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            journal: [],
             tShirt: false,
             shorts: false,
             pants: false,
             jacket: false,
+            gloves: false,
+            hat: false,
+            shoes: false,
+            socks: false,
             map: false,
             watch: false,
             cellPhone: false,
@@ -24,19 +27,38 @@ class Journals extends React.Component {
         }
     }
 
+
     handleChange = (event) => {
         console.log(event)
         this.setState({
-            [event.target.name]: !!event.target.value
-          })
-          debugger
+            ...this.state, [event.target.name]: !!event.target.value
+        })
+        debugger
     }
 
     handleSubmit = event => {
-        debugger
         console.log(event)
         let id = window.localStorage['id']
+        let result = []
+        for (const property in this.state) {
+            if (this.state[property] === true) {
+                result.push(property)
+            }
+        }
+        if (result.length === 1) {
+            alert(`Remember to bring: ${result[0]}`)
+        } else if (result.length === 2) {
+            let joined = result.join(' and ')
+            alert(`Remember to bring: ${joined}!`)
+        } else  if (result.length > 2) {
+            let lastIndex = result.pop()
+            let joined = result.join(', ')
+
+            alert(`Remember to bring: ${joined}, and ${lastIndex}!`)
+
+        }        
         journalPatch(id, event.target.id, this.state)
+
     }
 
     render() {
@@ -75,15 +97,15 @@ class Journals extends React.Component {
                             <h3>Clothing</h3>
                             <p>
                                 <form onSubmit={this.handleSubmit} id={journal.id}>
-                                T-Shirt: <input type="checkbox" name="tShirt" onChange={(event) => this.handleChange(event)} value={this.state.tShirt} checked={this.state.tShirt}/>
+                                T-Shirt: <input type="checkbox" name="tShirt" onChange={(event) => this.handleChange(event)} value={this.state.tShirt} />
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                Shorts: <input type="checkbox" name="shorts" onChange={(event) => this.handleChange(event)} value={this.state.shorts} checked={this.state.tShirt}/> 
+                                Shorts: <input type="checkbox" name="shorts" onChange={(event) => this.handleChange(event)} value={this.state.shorts} /> 
                                 &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-                                Pants <input type="checkbox" name="pants" onChange={(event) => this.handleChange(event)} value={this.state.pants} checked={this.state.pants}/>
+                                Pants <input type="checkbox" name="pants" onChange={(event) => this.handleChange(event)} value={this.state.pants} />
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                Jacket: <input type="checkbox" name="jacket" onChange={(event) => this.handleChange(event)} value={this.state.jacket} checked={this.state.tShirt}/>
+                                Jacket: <input type="checkbox" name="jacket" onChange={(event) => this.handleChange(event)} value={this.state.jacket} />
                                 <br/>
-                                Gloves: <input type="checkbox" name="gloves" onChange={(event) => this.handleChange(event)} value={this.state.gloves} checked={this.state.tShirt}/>
+                                Gloves: <input type="checkbox" name="gloves" onChange={(event) => this.handleChange(event)} value={this.state.gloves} />
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 Hat: <input type="checkbox" name="hat" onChange={(event) => this.handleChange(event)} value={this.state.hat}/>
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -96,7 +118,7 @@ class Journals extends React.Component {
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 Watch: <input type="checkbox" name="watch" onChange={(event) => this.handleChange(event)} value={this.state.watch}/>
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                Cellphone: <input type="checkbox" name="cellPhone" onChange={(event) => this.handleChange(event)} value={this.state.cellPhone}/>
+                                Cellphone: <input type="checkbox" name="cellphone" onChange={(event) => this.handleChange(event)} value={this.state.cellPhone}/>
 
                             <h3>Nutrition</h3>
                                 Food: <input type="checkbox" name="food" onChange={(event) => this.handleChange(event)} value={this.state.food}/>
@@ -104,16 +126,18 @@ class Journals extends React.Component {
                                 Water: <input type="checkbox" name="water" onChange={(event) => this.handleChange(event)} value={this.state.water} />
 
                             <h3>Extra</h3>
-                                Running Pack: <input type="checkbox" name="runningPack" onChange={(event) => this.handleChange(event)} value={this.state.runningPack} />
+                                Running Pack: <input type="checkbox" name="runningpack" onChange={(event) => this.handleChange(event)} value={this.state.runningPack} />
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                First Aid Pack: <input type="checkbox" name="firstAidPack" onChange={(event) => this.handleChange(event)} value={this.state.firstAidPack} />
+                                First Aid Pack: <input type="checkbox" name="firstaidpack" onChange={(event) => this.handleChange(event)} value={this.state.firstAidPack} />
                                 <br/>
-                                Sunscreen: <input type="checkbox" name="sunScreen" onChange={(event) => this.handleChange(event)} value={this.state.sunScreen}/>
+                                Sunscreen: <input type="checkbox" name="sunscreen" onChange={(event) => this.handleChange(event)} value={this.state.sunScreen}/>
                                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                Bugspray: <input type="checkbox" name="bugSpray" onChange={(event) => this.handleChange(event)} value={this.state.bugSpray}/>
+                                Bugspray: <input type="checkbox" name="bugspray" onChange={(event) => this.handleChange(event)} value={this.state.bugSpray}/>
                                 <br/><br/>
 
                                 <input type="submit" value="Update Run"/>
+                                <br/><br/>
+
                             </form>
                             </p>
                         </div>
@@ -138,23 +162,28 @@ export default Journals
 
 
 
+// componentDidUpdate() {
+//     this.props.journals.map(journal => {
+//         {this.setState({
+//         tShirt: journal.tShirt,
+//         shorts: journal.shorts,
+//         pants: journal.pants,
+//         jacket: journal.jacket,
+//         map: journal.map,
+//         watch: journal.watch,
+//         cellPhone: journal.cellPhone,
+//         food: journal.food,
+//         water: journal.water,
+//         runningPack: journal.runningPack,
+//         firstAidPack: journal.firstAidPack,
+//         sunScreen: journal.sunScreen,
+//         bugSpray: journal.bugSpray,
+//         })}
+//     })
+// }
 
 
-                            /* {this.setState({
-                                tShirt: journal.tShirt,
-                                shorts: journal.shorts,
-                                pants: journal.pants,
-                                jacket: journal.jacket,
-                                map: journal.map,
-                                watch: journal.watch,
-                                cellPhone: journal.cellPhone,
-                                food: journal.food,
-                                water: journal.water,
-                                runningPack: journal.runningPack,
-                                firstAidPack: journal.firstAidPack,
-                                sunScreen: journal.sunScreen,
-                                bugSpray: journal.bugSpray,
-                            })} */
+
 
 
 
