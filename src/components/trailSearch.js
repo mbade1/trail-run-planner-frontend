@@ -3,7 +3,7 @@ import React from 'react'
 class TrailSearch extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', city: '', statee: '' };
+        this.state = {city: '', statee: '' };
     }
 
     handleChange = (event) => {

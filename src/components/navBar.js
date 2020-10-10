@@ -23,7 +23,7 @@ class NavBar extends React.Component {
                     </div>    
                     :
                     <div className="nav" onChange={() => this.handleChange()}>
-                        <Link to="/">Home</Link> | <Link to="/login">Log In</Link> | <Link to="/signup">Sign Up</Link>    
+                        <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/login">Log In</Link> | <Link to="/signup">Sign Up</Link> 
                     </div>
                 }
                     <Switch>

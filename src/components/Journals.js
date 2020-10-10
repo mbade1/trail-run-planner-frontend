@@ -58,7 +58,6 @@ class Journals extends React.Component {
     }
 
     render() {
-        debugger
         if (this.props.journals.length >= 1) {
             return (
                 <div>

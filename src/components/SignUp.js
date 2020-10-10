@@ -19,10 +19,6 @@ class SignUp extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.signUpFetch(this.state.user, this.state.password)
-    this.setState({
-      user: '',
-      password: ''
-    })
     this.props.history.push('/trails')
   }
     

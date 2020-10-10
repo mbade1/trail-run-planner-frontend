@@ -20,7 +20,7 @@ const signUpFetch = (user, password) => {
       dispatch({ type: 'ADD_USER', payload: newUser })
     }
     else {
-      alert(newUser.errors)
+      alert(newUser.message)
     }
   })
   }

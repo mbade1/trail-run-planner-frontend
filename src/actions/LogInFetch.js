@@ -10,10 +10,11 @@ const logInFetch = (username, password) => {
     .then(response => response.json())
     .then(loggedInUser => {
       if (loggedInUser.id) {
+        debugger
         localStorage.setItem('id', loggedInUser.id);
         dispatch({ type: 'SET_USER', payload: loggedInUser})
       } else {
-        alert(loggedInUser.errors)
+        alert(loggedInUser.message)
       }
     })
   }
