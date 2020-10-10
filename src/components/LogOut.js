@@ -1,5 +1,5 @@
 import React from 'react'
-import logOutFetch from '../fetchCalls/LogOut'
+import logOutFetch from '../actions/LogOut'
 import { withRouter } from 'react-router';
 import {connect} from 'react-redux'
 
@@ -19,7 +19,6 @@ const LogOut = ({ history}) => {
     </div>
     </div>
   )  
-
 }
 
 const mapStateToProps = state => {

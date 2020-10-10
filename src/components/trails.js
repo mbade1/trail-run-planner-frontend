@@ -2,7 +2,7 @@ import React from 'react'
 import ImageNotFound from '../images/picture-not-found.jpg'
 import Iframe from 'react-iframe'
 import {connect} from 'react-redux'
-import journalPost from '../fetchCalls/JournalPost'
+import journalPost from '../actions/JournalPost'
 
 class Trails extends React.Component {
     constructor() {

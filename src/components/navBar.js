@@ -6,13 +6,8 @@ import Home from '../components/Home'
 import LogIn from '../components/LogIn'
 import SignUp from '../components/SignUp'
 import LogOut from '../components/LogOut'
-// import LogOutFetch from '../fetchCalls/LogOut'
  
 class NavBar extends React.Component {
-
-    handleChange = () => {
-        isLoggedIn()
-    }
 
     componentDidMount() {
         isLoggedIn()
@@ -23,7 +18,7 @@ class NavBar extends React.Component {
             <Router>
                 <div>
                 {isLoggedIn() ?
-                    <div className="nav" onChange={() => this.handleChange()}>
+                    <div className="nav">
                         <Link to="/" >Home</Link> | <Link to="/trails">Trails</Link> | <Link to="/journals">Running Journal</Link> | <Link to="/logout">Log Out</Link>
                     </div>    
                     :

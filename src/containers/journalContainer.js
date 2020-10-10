@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {journalFetch} from '../fetchCalls/JournalFetch'
+import {journalFetch} from '../actions/JournalFetch'
 import Journals from '../components/Journals'
 import JournalHeader from '../components/JournalHeader'
 
@@ -30,27 +30,3 @@ const mapStateToProps = state => {
   let id = window.localStorage['id']
 
 export default connect(mapStateToProps, journalFetch(id))(JournalContainer)
-
-
-
-// componentDidMount() {
-//     this.props.fetchCityAndTrails()
-// }
-
-// render() {
-//     return (
-//         <div className="trails-container">
-//             <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails}/>
-//             <Trails trails={this.props.trails}/>
-//         </div>
-//     )
-// }
-// }
-
-// const mapStateToProps = state => {
-// return {
-//   trails: state.trails
-// }
-// }
-
-// export default connect(mapStateToProps, {fetchCityAndTrails})(TrailsContainer)

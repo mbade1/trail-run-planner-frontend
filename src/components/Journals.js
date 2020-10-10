@@ -1,7 +1,7 @@
 import React from 'react'
 import Iframe from 'react-iframe'
 import ImageNotFound from '../images/picture-not-found.jpg'
-import journalPatch from '../fetchCalls/JournalPatch'
+import journalPatch from '../actions/JournalPatch'
 
 class Journals extends React.Component {
     constructor(props) {
@@ -26,7 +26,6 @@ class Journals extends React.Component {
             bugSpray: false,
         }
     }
-
 
     handleChange = (event) => {
         console.log(event)
@@ -53,12 +52,9 @@ class Journals extends React.Component {
         } else  if (result.length > 2) {
             let lastIndex = result.pop()
             let joined = result.join(', ')
-
             alert(`Remember to bring: ${joined}, and ${lastIndex}!`)
-
         }        
         journalPatch(id, event.target.id, this.state)
-
     }
 
     render() {
@@ -137,7 +133,6 @@ class Journals extends React.Component {
 
                                 <input type="submit" value="Update Run"/>
                                 <br/><br/>
-
                             </form>
                             </p>
                         </div>
@@ -156,61 +151,4 @@ class Journals extends React.Component {
     }
 }
 
-
 export default Journals
-
-
-
-
-// componentDidUpdate() {
-//     this.props.journals.map(journal => {
-//         {this.setState({
-//         tShirt: journal.tShirt,
-//         shorts: journal.shorts,
-//         pants: journal.pants,
-//         jacket: journal.jacket,
-//         map: journal.map,
-//         watch: journal.watch,
-//         cellPhone: journal.cellPhone,
-//         food: journal.food,
-//         water: journal.water,
-//         runningPack: journal.runningPack,
-//         firstAidPack: journal.firstAidPack,
-//         sunScreen: journal.sunScreen,
-//         bugSpray: journal.bugSpray,
-//         })}
-//     })
-// }
-
-
-
-
-
-
-
-                                // componentDidMount() {
-    //     //journalFetch
-    //     debugger
-    // }
-
-    // componentDidUpdate() {
-    //     debugger
-
-    //         console.log(this.props.journals)
-    //         // this.setState({
-    //         //     tShirt: journal.tShirt,
-    //         //     // shorts: false,
-    //         //     // pants: false,
-    //         //     // jacket: false,
-    //         //     // map: false,
-    //         //     // watch: false,
-    //         //     // cellPhone: false,
-    //         //     // food: false,
-    //         //     // water: false,
-    //         //     // runningPack: false,
-    //         //     // firstAidPack: false,
-    //         //     // sunScreen: false,
-    //         //     // bugSpray: false,
-    //         // })
-        
-    // }

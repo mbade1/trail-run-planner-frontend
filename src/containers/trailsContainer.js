@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchCityAndTrails} from '../fetchCalls/Trails'
+import {fetchCityAndTrails} from '../actions/Trails'
 import Trails from '../components/Trails'
 import TrailSearch from '../components/TrailSearch'
 
