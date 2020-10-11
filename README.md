@@ -26,7 +26,7 @@ In response to 'Would you like to run the app on another port instead?'
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mbade1/vegan-camping-cookbook-collective. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mbade1/trail-run-planner-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
