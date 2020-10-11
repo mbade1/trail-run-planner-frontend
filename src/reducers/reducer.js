@@ -1,53 +1,53 @@
 const initialState = {
   trails: [],
-  username: '',
-  id: '',
+  username: "",
+  id: "",
   journals: [],
-  fetchTrails: false
-}
+  fetchTrails: false,
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_TRAILS':
+    case "FETCH_TRAILS":
       return {
         ...state,
         trails: action.payload.trails,
-        fetchTrails: true
-      }
-    case 'ADD_USER':
+        fetchTrails: true,
+      };
+    case "ADD_USER":
       return {
-      ...state,
-      username: action.payload.username,
-      id: action.payload.id
-    }
+        ...state,
+        username: action.payload.username,
+        id: action.payload.id,
+      };
     case "SET_USER":
       return {
-      ...state,
-      username: action.payload.username,
-      id: action.payload.id
-    }
+        ...state,
+        username: action.payload.username,
+        id: action.payload.id,
+      };
     case "ADD_JOURNAL":
       return {
         ...state,
-        journals: action.payload
-      }
-    case 'FETCH_JOURNALTRAILS':
-        debugger
+        journals: action.payload,
+      };
+    case "FETCH_JOURNALTRAILS":
+      debugger;
       return {
         ...state,
-        journals: action.payload
-      }
-    case 'LOGOUT_USER':
-      debugger
+        journals: action.payload,
+      };
+    case "LOGOUT_USER":
+      debugger;
       return {
-          ...state,
-          username: '',
-          id: ''
-      }
+        ...state,
+        username: "",
+        id: "",
+      };
 
     default:
       return state;
   }
-}
+};
 
 export default rootReducer;

@@ -5,7 +5,10 @@ const logInFetch = (username, password) => {
       headers: {
         "Content-Type": 'application/json'
       },
-      body: JSON.stringify({ username, password})
+      body: JSON.stringify({ 
+        username, 
+        password
+      })
     })
     .then(response => response.json())
     .then(loggedInUser => {

@@ -1,28 +1,30 @@
-import React from 'react';
-import {connect} from 'react-redux'
-import {fetchCityAndTrails} from '../actions/Trails'
-import Trails from '../components/Trails'
-import TrailSearch from '../components/TrailSearch'
+import React from "react";
+import { connect } from "react-redux";
+import { fetchCityAndTrails } from "../actions/Trails";
+import Trails from "../components/Trails";
+import TrailSearch from "../components/TrailSearch";
 
 class TrailsContainer extends React.Component {
-    componentDidMount() {
-        this.props.fetchCityAndTrails()
-    }
-
-    render() {
-        return (
-            <div className="trails-container">
-                <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails}/>
-                <Trails trails={this.props.trails}/>
-            </div>
-        )
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-      trails: state.trails
-    }
+  componentDidMount() {
+    this.props.fetchCityAndTrails();
   }
 
-export default connect(mapStateToProps, {fetchCityAndTrails})(TrailsContainer)
+  render() {
+    return (
+      <div className="trails-container">
+        <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails} />
+        <Trails trails={this.props.trails} />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    trails: state.trails,
+  };
+};
+
+export default connect(mapStateToProps, { fetchCityAndTrails })(
+  TrailsContainer
+);

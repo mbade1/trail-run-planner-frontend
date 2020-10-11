@@ -9,17 +9,5 @@ export const journalFetch = (userId) => {
       type: 'FETCH_JOURNALTRAILS', 
       payload: journalTrails
     })})
-      
-      // console.log(journalTrails))
   }
 }
-
-
-
-// fetch(`http://localhost:3000/users/${id}/journals`)
-// .then(resp => resp.json())
-// .then(trails => console.log(trails))
-
-// function setJournalState(journalTrails) {
-//   console.log(journalTrails)
-// }
