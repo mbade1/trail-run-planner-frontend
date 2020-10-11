@@ -9,4 +9,8 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
 TO DO BEFORE PROJECT EVAL:
     - Journal needs refresh before rendering journals.
     - Journal Post is not called in Trails.js. FIX THIS.
+    - ADD A DELETE RUN BUTTON, WITH HANDLE DELETE.
     - Check spacing of all files.
+
+
+

@@ -2,6 +2,8 @@ import React from "react";
 import Iframe from "react-iframe";
 import ImageNotFound from "../images/picture-not-found.jpg";
 import journalPatch from "../actions/JournalPatch";
+import journalDelete from '../actions/JournalDelete'
+import {withRouter} from 'react-router-dom'
 
 class Journals extends React.Component {
   constructor(props) {
@@ -56,6 +58,18 @@ class Journals extends React.Component {
     }
     journalPatch(id, event.target.id, this.state);
   };
+
+  handleDelete = (event) => {
+      debugger
+      let userId = window.localStorage["id"];
+      debugger
+      journalDelete(userId, event.target.value)
+      alert('This run has been deleted.')
+      this.setState({
+        ...this.state,
+        [event.target.name]: event.target.value,
+      })
+  }
 
   render() {
     if (this.props.journals.length >= 1) {
@@ -242,6 +256,12 @@ class Journals extends React.Component {
                     <br />
                     <br />
                   </form>
+                  <button 
+                    value={journal.id} 
+                    onClick={(event) => this.handleDelete(event)}
+                  >
+                    Delete Run
+                  </button>
                 </p>
               </div>
             </div>
@@ -258,4 +278,4 @@ class Journals extends React.Component {
   }
 }
 
-export default Journals;
+export default withRouter(Journals);
