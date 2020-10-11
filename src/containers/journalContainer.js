@@ -7,7 +7,7 @@ import JournalHeader from "../components/JournalHeader";
 class JournalContainer extends React.Component {
   componentDidMount() {
     let id = window.localStorage["id"];
-    journalFetch(id);
+    this.props.journalFetch(id);
   }
   render() {
     return (
@@ -20,12 +20,10 @@ class JournalContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger;
   return {
     journals: state.journals,
     id: state.id,
   };
 };
-let id = window.localStorage["id"];
 
-export default connect(mapStateToProps, journalFetch(id))(JournalContainer);
+export default connect(mapStateToProps, { journalFetch })(JournalContainer);

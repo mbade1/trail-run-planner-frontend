@@ -19,7 +19,6 @@ class App extends React.Component {
 
 //used to see what is IN our store.
 const mapStateToProps = (state) => {
-  debugger
   return {
     user: state.user,
     trails: state.trails,
@@ -37,6 +36,5 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-//below can also take mapDispatchToProps
-//passing in the mapStateToProps func. The return val of that func is coming from our store. 
+//below can also take mapDispatchToProps. Passing in the mapStateToProps func. The return val of that func is coming from our store. 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

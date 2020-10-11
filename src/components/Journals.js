@@ -72,7 +72,8 @@ class Journals extends React.Component {
   }
 
   render() {
-    if (this.props.journals.length >= 1) {
+    debugger
+    if ((this.props.journals.length >= 1) && window.localStorage['id']) {
       return (
         <div>
           {this.props.journals.map((journal) => (
@@ -268,12 +269,18 @@ class Journals extends React.Component {
           ))}
         </div>
       );
-    } else {
+    } else if ((this.props.journals.length < 1) && window.localStorage['id']) {
       return (
         <div className="journal-trail">
           <h2>To add a run, click on Trails above</h2>
         </div>
       );
+    } else {
+      return (
+        <div className="journal-trail">
+          <h2>Log in or Sign up to make your journal!</h2>
+        </div>
+      )
     }
   }
 }
