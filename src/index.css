@@ -187,3 +187,17 @@ a:hover {
 .packingList p {
   text-align: center;
 }
+
+.footer {
+  font-size: 0.7em;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-container, .sign-up-form-container, .login-container, .logout-container {
+    width: 90%;
+  }
+
+  .trail, .journal-trail {
+    width: 90%;
+  }
+}

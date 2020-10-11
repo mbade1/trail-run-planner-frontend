@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar';
 import Reducer from './reducers/reducer';
+import Footer from './components/Footer'
 
 class App extends React.Component {
 
@@ -10,6 +11,7 @@ class App extends React.Component {
     return (
      <div className="App">
       <NavBar props={this.props}/>
+      <Footer />
      </div>
    );
   }
