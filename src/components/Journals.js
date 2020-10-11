@@ -5,6 +5,9 @@ import journalPatch from "../actions/JournalPatch";
 import journalDelete from '../actions/JournalDelete'
 import {withRouter} from 'react-router-dom'
 
+const REACT_APP_GOOGLE_MAPS_API = process.env['REACT_APP_GOOGLE_MAPS_API']
+console.log(process.env)
+
 class Journals extends React.Component {
   constructor(props) {
     super(props);
@@ -84,10 +87,10 @@ class Journals extends React.Component {
               />
               <h2>{journal.name}</h2>
               <h3>Day of Run: {journal.date_of_run}</h3>
-              {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}} */}
+              {/* url to be used: } */}
               <div className="journal-map-and-info">
                 <Iframe
-                  url={`http://google.com`}
+                  url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${journal.latitude},${journal.longitude}`}
                   width="200px"
                   height="200px"
                   id="myId"
@@ -253,7 +256,7 @@ class Journals extends React.Component {
                     />
                     <br />
                     <br />
-                    <input type="submit" value="Update Run" />
+                    <input type="submit" value="Pack for Run!" />
                     <br />
                     <br />
                   </form>

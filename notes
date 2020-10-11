@@ -7,10 +7,14 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
 
 
 TO DO BEFORE PROJECT EVAL:
-    - Journal needs refresh before rendering journals.
     - Journal Post is not called in Trails.js. FIX THIS.
     - ADD A DELETE RUN BUTTON, WITH HANDLE DELETE.
-    - Check spacing of all files.
 
 
+HEROKU DEPLOYMENT:
+For API keys for Heroku, be sure to add them as the following keys:
 
+REACT_APP_HIKING_API = ""
+REACT_APP_GEO_API = ""
+REACT_APP_GOOGLE_API = "" 
+REACT_APP_BACKEND_API = ""

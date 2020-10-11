@@ -3,7 +3,6 @@ const initialState = {
   username: "",
   id: "",
   journals: [],
-  fetchTrails: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -12,7 +11,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         trails: action.payload.trails,
-        fetchTrails: true,
       };
     case "ADD_USER":
       return {
@@ -32,13 +30,11 @@ const rootReducer = (state = initialState, action) => {
         journals: action.payload,
       };
     case "FETCH_JOURNALTRAILS":
-      debugger;
       return {
         ...state,
         journals: action.payload,
       };
     case "LOGOUT_USER":
-      debugger;
       return {
         ...state,
         username: "",

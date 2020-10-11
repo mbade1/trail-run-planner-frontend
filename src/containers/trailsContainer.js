@@ -1,18 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchCityAndTrails } from "../actions/Trails";
+import { fetchCityAndTrails } from "../actions/FetchCityAndTrails";
 import Trails from "../components/Trails";
 import TrailSearch from "../components/TrailSearch";
 
 class TrailsContainer extends React.Component {
+
   componentDidMount() {
-    this.props.fetchCityAndTrails();
+    debugger
+      this.props.fetchCityAndTrails()
   }
 
   render() {
     return (
       <div className="trails-container">
         <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails} />
+
         <Trails trails={this.props.trails} />
       </div>
     );
