@@ -1,4 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trail Run Planner App
+
+This repo is the frontend for the Trail Run Planner App. To see the backend, [click here](https://github.com/mbade1/trail-run-planner-backend). 
+
+This app helps trail runners remember what to pack for their trail runs. Users are able to view trails in their city, and (after logging in) created a running journal that keeps track of the trail and date for their runs. In this journal, users can then select what items they need to pack for their travels, after finalizing their packing list, an alert is sent to the user with the items needed for their run. 
+
+The app utilizies a React frontend, Rails API backend, and stores data from 3rd-party APIs in the Rails API backend. This is the final project for the Flatiron School.
+
+## Installation
+
+After cloning down this repo, be sure to clone down the [backend](https://github.com/mbade1/trail-run-planner-backend) as well.
+
+To install the backend:
+```$ cd train-run-planner-backend```
+```$ bundle install```
+```$ rake db:migrate```
+```$ rails s```
+
+To install the frontend:
+
+```$ cd trail-run-planner-frontend```
+```$ npm install```
+```$ npm start```
+In response to 'Would you like to run the app on another port instead?'
+```$ Y```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/mbade1/vegan-camping-cookbook-collective. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+## License
+
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Blog and Video Walk-Through
+
+For more information on the design of this project, feel free to check out my [Blog](https://mbade1.github.io/trail_run_planner).
+
+For a walk-through of this project, go [here]().
+
+To view more apps, go to my [portfolio](http://mbadedeveloper.com).
+
+
+
+# This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

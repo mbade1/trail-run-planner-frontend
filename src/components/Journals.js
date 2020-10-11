@@ -45,14 +45,14 @@ class Journals extends React.Component {
             }
         }
         if (result.length === 1) {
-            alert(`Remember to bring: ${result[0]}`)
+            alert(`Remember to bring: ${result[0].toLowerCase()}`)
         } else if (result.length === 2) {
             let joined = result.join(' and ')
-            alert(`Remember to bring: ${joined}!`)
+            alert(`Remember to bring: ${joined.toLowerCase()}!`)
         } else  if (result.length > 2) {
             let lastIndex = result.pop()
             let joined = result.join(', ')
-            alert(`Remember to bring: ${joined}, and ${lastIndex}!`)
+            alert(`Remember to bring: ${joined.toLowerCase()}, and ${lastIndex.toLowerCase()}!`)
         }        
         journalPatch(id, event.target.id, this.state)
     }
