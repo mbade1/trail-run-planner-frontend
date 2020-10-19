@@ -1,6 +1,8 @@
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
+
 const signUpFetch = (user, password) => {  
   return(dispatch) => {
-    fetch("http://localhost:3000/users", {
+    fetch(`${REACT_APP_BACKEND_API}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

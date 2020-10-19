@@ -7,14 +7,21 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
 
 
 TO DO BEFORE PROJECT EVAL:
-    - Journal Post is not called in Trails.js. FIX THIS.
+    - Journal Post is not called in Trails.js. Fix this??? If it stays, Journals may be overloaded with state. Right now, it's simply placing journalTrails in the backend, making them accessible for the Journals Component when it's mounted.
     - ADD A DELETE RUN BUTTON, WITH HANDLE DELETE.
+    - Review EVERYTHING for the Eval!!!
 
+
+
+
+
+
+FUTURE: 
 
 HEROKU DEPLOYMENT:
-For API keys for Heroku, be sure to add them as the following keys:
+For API keys for Heroku, be sure to add them as the following vars to relevant files:
 
-REACT_APP_HIKING_API = ""
-REACT_APP_GEO_API = ""
-REACT_APP_GOOGLE_API = "" 
-REACT_APP_BACKEND_API = ""
+const REACT_APP_GEO_API = process.env['REACT_APP_GEO_API'];             //any file with the GEO fetch for lat/long
+const REACT_APP_HIKING_API = process.env['REACT_APP_HIKING_API'];       //any file with the fetch to the Hiking Project
+const REACT_APP_GOOGLE_API = process.env['REACT_APP_GOOGLE_API'];       //any file with the Google Maps API fetch
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API'];     //any file with the backend API fetch call (almost every fetch request)

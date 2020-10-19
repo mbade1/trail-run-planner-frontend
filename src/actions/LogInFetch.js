@@ -1,6 +1,8 @@
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
+
 const logInFetch = (username, password) => {
   return(dispatch) => {
-    fetch("http://localhost:3000/sessions", {
+    fetch(`${REACT_APP_BACKEND_API}/sessions`, {
       method: 'POST',
       headers: {
         "Content-Type": 'application/json'

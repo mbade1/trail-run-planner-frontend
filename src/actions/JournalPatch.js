@@ -1,5 +1,7 @@
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
+
 const journalPatch = (userId, journalId, data) => {
-  fetch(`http://localhost:3000/users/${userId}/journals/${journalId}`, {
+  fetch(`${REACT_APP_BACKEND_API}/users/${userId}/journals/${journalId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'

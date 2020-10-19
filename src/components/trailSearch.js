@@ -35,6 +35,7 @@ class TrailSearch extends React.Component {
             name="city"
             onChange={(event) => this.handleChange(event)}
             value={this.state.city}
+            placeholder="Foresta"
           />
           &nbsp;
           <b>State</b>:{" "}
@@ -43,6 +44,7 @@ class TrailSearch extends React.Component {
             name="statee"
             onChange={(event) => this.handleChange(event)}
             value={this.state.statee}
+            placeholder="CA"
           />
           &nbsp;
           <input type="submit" value="Search for trails!"></input>

@@ -1,5 +1,5 @@
 const REACT_APP_GEO_API = process.env['REACT_APP_GEO_API'];
-const REACT_APP_HIKING_API = process.env['REACT_APP_HIKING_API']
+const REACT_APP_HIKING_API = process.env['REACT_APP_HIKING_API'];
 
 export const fetchCityAndTrails = (city = "Foresta", statee = "CA") => {
   return (dispatch) => {

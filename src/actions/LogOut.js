@@ -1,6 +1,8 @@
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
+
 const logOutFetch = (id) => {
   localStorage.removeItem('id');
-  fetch(`http://localhost:3000/users/${id}`, {
+  fetch(`${REACT_APP_BACKEND_API}/users/${id}`, {
     method: 'DELETE',
     headers: {
       "Content-Type": "application/json"

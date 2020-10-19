@@ -6,7 +6,6 @@ import journalDelete from '../actions/JournalDelete'
 import {withRouter} from 'react-router-dom'
 
 const REACT_APP_GOOGLE_MAPS_API = process.env['REACT_APP_GOOGLE_MAPS_API']
-console.log(process.env)
 
 class Journals extends React.Component {
   constructor(props) {
@@ -63,19 +62,13 @@ class Journals extends React.Component {
   };
 
   handleDelete = (event) => {
-      debugger
       let userId = window.localStorage["id"];
-      debugger
       journalDelete(userId, event.target.value)
       alert('This run has been deleted.')
-      this.setState({
-        ...this.state,
-        [event.target.name]: event.target.value,
-      })
+      this.props.history.push("/trails");
   }
 
   render() {
-    debugger
     if ((this.props.journals.length >= 1) && window.localStorage['id']) {
       return (
         <div>
@@ -91,6 +84,7 @@ class Journals extends React.Component {
               <div className="journal-map-and-info">
                 <Iframe
                   url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${journal.latitude},${journal.longitude}`}
+                  url='https://www.google.com'
                   width="200px"
                   height="200px"
                   id="myId"

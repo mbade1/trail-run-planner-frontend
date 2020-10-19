@@ -1,6 +1,7 @@
+const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
+
 const journalDelete = (userId, journal) => {
-    debugger
-    fetch(`http://localhost:3000/users/${userId}/journals/${journal}`, {
+    fetch(`${REACT_APP_BACKEND_API}/users/${userId}/journals/${journal}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -10,7 +11,8 @@ const journalDelete = (userId, journal) => {
         journal: journal
       })
     })
-    debugger
+    return fetch(`${REACT_APP_BACKEND_API}/users/${userId}/journals`)
+    .then(r => r.json())
   }
   
   export default journalDelete
