@@ -8,7 +8,8 @@ export const fetchCityAndTrails = (city = "Foresta", statee = "CA") => {
       `https://api.geocod.io/v1.6/geocode?q=${city}%2c+${statee}&api_key=${REACT_APP_GEO_API}`
     )
       .then((resp) => resp.json())
-      .then((coordinates) => fetchTrails(coordinates));
+      .then((coordinates) => fetchTrails(coordinates))
+      .catch(error => alert('Please enter the exact city name and state initials.'))
 
     const fetchTrails = (coordinates) => {
       fetch(
@@ -85,7 +86,8 @@ export const journalPost = (userId, hiker_project_id, dateOfRun, body) => {
       .then((response) => response.json())
       .then((newJournalEntry) => {
         dispatch({ type: "ADD_JOURNAL", payload: newJournalEntry });
-      });
+      })
+      .catch(error => alert('Run not added to journal.'))
   };
 };
 
