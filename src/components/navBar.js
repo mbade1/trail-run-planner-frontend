@@ -17,17 +17,17 @@ class NavBar extends React.Component {
       <Router>
         <div>
           {isLoggedIn() ? (
-            <div className="nav">
+            <nav>
               <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
               <Link to="/journals">Running Journal</Link> |{" "}
               <Link to="/logout">Log Out</Link>
-            </div>
+            </nav>
           ) : (
-            <div className="nav" onChange={() => this.handleChange()}>
+            <nav>
               <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
               <Link to="/login">Log In</Link> |{" "}
               <Link to="/signup">Sign Up</Link>
-            </div>
+            </nav>
           )}
           <Switch>
             <Route exact path="/">
@@ -56,7 +56,7 @@ class NavBar extends React.Component {
 }
 
 function isLoggedIn() {
-  let result = !!localStorage.getItem("id");
+  let result = !!window.localStorage.getItem("id");
   return result;
 }
 
