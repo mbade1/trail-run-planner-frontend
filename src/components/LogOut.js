@@ -1,5 +1,5 @@
 import React from "react";
-import logOutFetch from "../actions/LogOut";
+import {logOutFetch} from "../actions/Actions";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 

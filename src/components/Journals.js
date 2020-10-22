@@ -1,8 +1,8 @@
 import React from "react";
 import Iframe from "react-iframe";
 import ImageNotFound from "../images/picture-not-found.jpg";
-import journalPatch from "../actions/JournalPatch";
-import journalDelete from '../actions/JournalDelete'
+import {journalPatch } from "../actions/Actions";
+import {journalDelete} from '../actions/Actions'
 import {withRouter} from 'react-router-dom'
 
 const REACT_APP_GOOGLE_MAPS_API = process.env['REACT_APP_GOOGLE_MAPS_API']

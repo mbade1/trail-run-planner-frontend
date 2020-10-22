@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import signUpFetch from "../actions/SignUpFetch";
+import {signUpFetch} from "../actions/Actions";
 
 class SignUp extends React.Component {
   constructor() {

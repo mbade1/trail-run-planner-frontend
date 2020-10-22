@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { journalFetch } from "../actions/JournalFetch";
+import { journalFetch } from "../actions/Actions";
 import Journals from "../components/Journals";
 import JournalHeader from "../components/JournalHeader";
 

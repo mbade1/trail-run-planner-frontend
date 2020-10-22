@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import logInFetch from "../actions/LogInFetch";
+import {logInFetch} from "../actions/Actions";
 
 class LogIn extends React.Component {
   constructor(props) {

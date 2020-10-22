@@ -2,7 +2,7 @@ import React from "react";
 import ImageNotFound from "../images/picture-not-found.jpg";
 import Iframe from "react-iframe";
 import { connect } from "react-redux";
-import journalPost from "../actions/JournalPost";
+import {journalPost} from "../actions/Actions";
 
 const REACT_APP_GOOGLE_MAPS_API = process.env["REACT_APP_GOOGLE_MAPS_API"];
 console.log(REACT_APP_GOOGLE_MAPS_API);
