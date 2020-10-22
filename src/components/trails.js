@@ -4,7 +4,8 @@ import Iframe from "react-iframe";
 import { connect } from "react-redux";
 import journalPost from "../actions/JournalPost";
 
-const REACT_APP_GOOGLE_MAPS_API = process.env['REACT_APP_GOOGLE_MAPS_API']
+const REACT_APP_GOOGLE_MAPS_API = process.env["REACT_APP_GOOGLE_MAPS_API"];
+console.log(REACT_APP_GOOGLE_MAPS_API);
 
 class Trails extends React.Component {
   constructor() {
@@ -25,12 +26,7 @@ class Trails extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //function call to post into user's journal: PostRunToJournal(this.state.dateOfRun)
-    //optional: this.props.history.push('/users/:id/journals)
-    console.log(event);
     let userId = window.localStorage["id"];
-    let dateOfRun = this.state.dateOfRun;
-    // JournalPost(userId, this.state.userId, this.state.dateOfRun)
     let hikerProjectId = event.target[1].defaultValue;
     let imgMedium = event.target[2].defaultValue;
     let name = event.target[3].defaultValue;
@@ -42,33 +38,25 @@ class Trails extends React.Component {
     let conditionStatus = event.target[9].defaultValue;
     let latitude = event.target[10].defaultValue;
     let longitude = event.target[11].defaultValue;
-
-    debugger;
-    fetch(`http://localhost:3000/users/${userId}/journals`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        journal: {
-          trailId: hikerProjectId,
-          dateOfRun: dateOfRun,
-          imgMedium: imgMedium,
-          name: name,
-          length: length,
-          difficulty: difficulty,
-          stars: stars,
-          starVotes: starVotes,
-          conditionDetails: conditionDetails,
-          conditionStatus: conditionStatus,
-          latitude: latitude,
-          longitude: longitude,
-        },
-      }),
-    })
-      .then((response) => response.json())
-      .then((newJournalEntry) => console.log(newJournalEntry));
+    let body = {
+      hikerProjectId,
+      imgMedium,
+      name,
+      length,
+      difficulty,
+      stars,
+      starVotes,
+      conditionDetails,
+      conditionStatus,
+      latitude,
+      longitude,
+    };
+    this.props.journalPost(
+      userId,
+      this.state.userId,
+      this.state.dateOfRun,
+      body
+    );
     this.setState({
       dateOfRun: "",
     });
@@ -86,9 +74,8 @@ class Trails extends React.Component {
                 alt={`${trail.name} trailhead`}
               />
               <h2>{trail.name}</h2>
-              {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}} */}
               <Iframe
-                // url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
+                //url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
                 url="https://www.google.com"
                 width="200px"
                 height="200px"
@@ -157,10 +144,8 @@ class Trails extends React.Component {
                 alt={`${trail.name} trailhead`}
               />
               <h2>{trail.name}</h2>
-              {/* url to be used: {https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvdMdqe2ppwzO7Y6faMVpDo-sJG0SkkQ&q=location=${trail.latitude},${trail.longitude}} */}
               <Iframe
-                // url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
-                url="https://www.google.com"
+                url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
                 width="200px"
                 height="200px"
                 id="myId"
@@ -205,7 +190,23 @@ class Trails extends React.Component {
 const mapStateToProps = (state) => {
   return {
     dateOfRun: state.dateOfRun,
+    journals: state.journal,
   };
 };
 
 export default connect(mapStateToProps, { journalPost })(Trails);
+
+//Coding assessment: Add a "like" button to like or unlike individual trails:
+
+//in state: liker: false
+
+// handleLiker = () => {
+//   debugger
+//   this.setState({
+//     liker: !this.state.liker
+//   })
+// }
+
+//<button onClick={this.handleLiker}>
+//{this.state.liker ? 'UNLIKE' : 'LIKE'}
+//</button>

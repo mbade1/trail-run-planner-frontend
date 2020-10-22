@@ -4,17 +4,9 @@ How to solve npm error “npm ERR! code ELIFECYCLE”
     3: npm install
     4: npm start
 
-
-
 TO DO BEFORE PROJECT EVAL:
     - Journal Post is not called in Trails.js. Fix this??? If it stays, Journals may be overloaded with state. Right now, it's simply placing journalTrails in the backend, making them accessible for the Journals Component when it's mounted.
-    - ADD A DELETE RUN BUTTON, WITH HANDLE DELETE.
     - Review EVERYTHING for the Eval!!!
-
-
-
-
-
 
 FUTURE: 
 

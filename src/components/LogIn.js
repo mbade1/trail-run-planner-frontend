@@ -18,6 +18,7 @@ class LogIn extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.logInFetch(this.state.username, this.state.password);
+    
     this.setState({
       user: "",
       password: "",

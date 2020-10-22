@@ -8,14 +8,13 @@ const logInFetch = (username, password) => {
         "Content-Type": 'application/json'
       },
       body: JSON.stringify({ 
-        username, 
+        username,  
         password
       })
     })
     .then(response => response.json())
     .then(loggedInUser => {
       if (loggedInUser.id) {
-        debugger
         localStorage.setItem('id', loggedInUser.id);
         dispatch({ type: 'SET_USER', payload: loggedInUser})
       } else {

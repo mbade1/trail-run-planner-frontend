@@ -7,15 +7,13 @@ import TrailSearch from "../components/TrailSearch";
 class TrailsContainer extends React.Component {
 
   componentDidMount() {
-    debugger
-      this.props.fetchCityAndTrails()
+    this.props.fetchCityAndTrails()
   }
 
   render() {
     return (
       <div className="trails-container">
         <TrailSearch fetchCityAndTrails={this.props.fetchCityAndTrails} />
-
         <Trails trails={this.props.trails} />
       </div>
     );
@@ -28,6 +26,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchCityAndTrails })(
-  TrailsContainer
-);
+export default connect(mapStateToProps, { fetchCityAndTrails })(TrailsContainer);

@@ -30,13 +30,3 @@ const mapStateToProps = (state) => {
 };
 
 export default withRouter(connect(mapStateToProps, { logOutFetch })(LogOut));
-
-// handleClick = event => {
-//     event.preventDefault();
-//     debugger
-//     this.props.logOutFetch(window.localStorage['id'])
-//     this.setState({
-//         username: '',
-//         id: ''
-//     })
-// }

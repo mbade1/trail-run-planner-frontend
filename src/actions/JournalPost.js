@@ -1,6 +1,9 @@
 const REACT_APP_BACKEND_API = process.env['REACT_APP_BACKEND_API']
 
-const journalPost = (userId, hiker_project_id, dateOfRun) => {
+const journalPost = (userId, hiker_project_id, dateOfRun, body) => {
+  debugger
+  return(dispatch)=> {
+    debugger
   fetch(`${REACT_APP_BACKEND_API}/users/${userId}/journals`, {
     method: 'POST',
     headers: {
@@ -10,12 +13,17 @@ const journalPost = (userId, hiker_project_id, dateOfRun) => {
     body: JSON.stringify({
       journal: {
         hiker_project_id: hiker_project_id,
-        dateOfRun: dateOfRun
+        dateOfRun: dateOfRun,
+        body: body
       }
     })
   })
   .then(response => response.json())
-  .then(newJournalEntry => console.log(newJournalEntry))
+  .then(newJournalEntry => {
+    console.log(newJournalEntry)
+    dispatch({ type: 'ADD_JOURNAL', payload: newJournalEntry})
+  })
+  }
 }
 
 export default journalPost
