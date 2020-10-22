@@ -67,9 +67,7 @@ export const journalPatch = (userId, journalId, data) => {
 };
 
 export const journalPost = (userId, hiker_project_id, dateOfRun, body) => {
-  debugger;
   return (dispatch) => {
-    debugger;
     fetch(`${REACT_APP_BACKEND_API}/users/${userId}/journals`, {
       method: "POST",
       headers: {

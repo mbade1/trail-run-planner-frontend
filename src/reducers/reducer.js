@@ -25,7 +25,6 @@ const rootReducer = (state = initialState, action) => {
         id: action.payload.id,
       };
     case "ADD_JOURNAL":
-      debugger
       return {
         ...state,
         journals: [action.payload],
