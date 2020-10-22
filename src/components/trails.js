@@ -15,6 +15,7 @@ class Trails extends React.Component {
       dateOfRun: "",
       userId: window.localStorage["id"],
       trailId: "",
+      journals: []
     };
   }
 
@@ -59,6 +60,7 @@ class Trails extends React.Component {
     );
     this.setState({
       dateOfRun: "",
+      journals: []
     });
     alert("This run has been added to your journal!");
   };
