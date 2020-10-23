@@ -4,7 +4,7 @@ This repo is the frontend for the Trail Run Planner App. To see the backend, [cl
 
 This app helps trail runners remember what to pack for their trail runs. Users are able to view trails in their city, and (after logging in) created a running journal that keeps track of the trail and date for their runs. In this journal, users can then select what items they need to pack for their travels, after finalizing their packing list, an alert is sent to the user with the items needed for their run. 
 
-The app utilizies a React frontend, Rails API backend, and stores data from 3rd-party APIs in the Rails API backend. This is the final project for the Flatiron School.
+The app utilizes a React frontend, Rails API backend, and stores data from 3rd-party APIs in the Rails API backend. This is the final project for the Flatiron School.
 
 ## Installation
 
