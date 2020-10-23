@@ -11,7 +11,7 @@ const LogOut = ({ history }) => {
         <div
           onClick={() => {
             localStorage.removeItem("id");
-            history.push("/");
+            history.push("/home");
             window.location.reload();
           }}
         >

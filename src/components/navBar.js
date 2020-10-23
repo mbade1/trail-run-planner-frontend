@@ -18,19 +18,19 @@ class NavBar extends React.Component {
         <div>
           {isLoggedIn() ? (
             <nav>
-              <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
+              <Link to="/home">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
               <Link to="/journals">Running Journal</Link> |{" "}
               <Link to="/logout">Log Out</Link>
             </nav>
           ) : (
             <nav>
-              <Link to="/">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
+              <Link to="/home">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
               <Link to="/login">Log In</Link> |{" "}
               <Link to="/signup">Sign Up</Link>
             </nav>
           )}
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/home">
               <Home />
             </Route>
             <Route path="/trails">
