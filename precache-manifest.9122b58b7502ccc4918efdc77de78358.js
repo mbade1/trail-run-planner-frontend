@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6112dcced1ac4a3651efdd4fb01fe9b6",
+    "revision": "d3e70feb4a61aea4d26f5e1745e43e91",
     "url": "/trail-run-planner-frontend/index.html"
   },
   {
-    "revision": "f91c44c44202258309cf",
+    "revision": "4b1b5b76243f00d669e1",
     "url": "/trail-run-planner-frontend/static/css/main.125ac676.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trail-run-planner-frontend/static/js/2.4d6386f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f91c44c44202258309cf",
-    "url": "/trail-run-planner-frontend/static/js/main.0d2a0e94.chunk.js"
+    "revision": "4b1b5b76243f00d669e1",
+    "url": "/trail-run-planner-frontend/static/js/main.e6600245.chunk.js"
   },
   {
     "revision": "8d35e00bed357e99f9e8",

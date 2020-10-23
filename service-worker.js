@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/trail-run-planner-frontend/precache-manifest.d75c2ec378777964835aed32735d9a3a.js"
+  "/trail-run-planner-frontend/precache-manifest.9122b58b7502ccc4918efdc77de78358.js"
 );
 
 self.addEventListener('message', (event) => {
