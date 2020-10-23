@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/trail-run-planner-frontend/static/css/main.125ac676.chunk.css",
-    "main.js": "/trail-run-planner-frontend/static/js/main.2ea66a8c.chunk.js",
-    "main.js.map": "/trail-run-planner-frontend/static/js/main.2ea66a8c.chunk.js.map",
+    "main.js": "/trail-run-planner-frontend/static/js/main.575a47e9.chunk.js",
+    "main.js.map": "/trail-run-planner-frontend/static/js/main.575a47e9.chunk.js.map",
     "runtime-main.js": "/trail-run-planner-frontend/static/js/runtime-main.74f76506.js",
     "runtime-main.js.map": "/trail-run-planner-frontend/static/js/runtime-main.74f76506.js.map",
-    "static/js/2.6131d440.chunk.js": "/trail-run-planner-frontend/static/js/2.6131d440.chunk.js",
-    "static/js/2.6131d440.chunk.js.map": "/trail-run-planner-frontend/static/js/2.6131d440.chunk.js.map",
+    "static/js/2.4d6386f6.chunk.js": "/trail-run-planner-frontend/static/js/2.4d6386f6.chunk.js",
+    "static/js/2.4d6386f6.chunk.js.map": "/trail-run-planner-frontend/static/js/2.4d6386f6.chunk.js.map",
     "index.html": "/trail-run-planner-frontend/index.html",
-    "precache-manifest.83026878df902b933cf605df35067b28.js": "/trail-run-planner-frontend/precache-manifest.83026878df902b933cf605df35067b28.js",
+    "precache-manifest.4f84242fc1616c7849eef745ea38086f.js": "/trail-run-planner-frontend/precache-manifest.4f84242fc1616c7849eef745ea38086f.js",
     "service-worker.js": "/trail-run-planner-frontend/service-worker.js",
     "static/css/main.125ac676.chunk.css.map": "/trail-run-planner-frontend/static/css/main.125ac676.chunk.css.map",
-    "static/js/2.6131d440.chunk.js.LICENSE.txt": "/trail-run-planner-frontend/static/js/2.6131d440.chunk.js.LICENSE.txt",
+    "static/js/2.4d6386f6.chunk.js.LICENSE.txt": "/trail-run-planner-frontend/static/js/2.4d6386f6.chunk.js.LICENSE.txt",
     "static/media/picture-not-found.jpg": "/trail-run-planner-frontend/static/media/picture-not-found.e67b896b.jpg",
     "static/media/index.css": "/trail-run-planner-frontend/static/media/trail-background.66088fb6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.74f76506.js",
-    "static/js/2.6131d440.chunk.js",
+    "static/js/2.4d6386f6.chunk.js",
     "static/css/main.125ac676.chunk.css",
-    "static/js/main.2ea66a8c.chunk.js"
+    "static/js/main.575a47e9.chunk.js"
   ]
 }
