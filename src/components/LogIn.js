@@ -23,7 +23,7 @@ class LogIn extends React.Component {
       user: "",
       password: "",
     });
-    this.props.history.push("/trails");
+    this.props.history.push("/trail-run-planner-frontend/trails");
   };
 
   render() {

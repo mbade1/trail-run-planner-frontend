@@ -66,7 +66,7 @@ class Journals extends React.Component {
       let userId = window.localStorage["id"];
       journalDelete(userId, event.target.value)
       alert('This run has been deleted.')
-      this.props.history.push("/trails");
+      this.props.history.push("/trail-run-planner-frontend/trails");
   }
 
   render() {

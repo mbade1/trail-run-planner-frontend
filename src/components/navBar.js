@@ -18,34 +18,34 @@ class NavBar extends React.Component {
         <div>
           {isLoggedIn() ? (
             <nav>
-              <Link to="/home">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
-              <Link to="/journals">Running Journal</Link> |{" "}
-              <Link to="/logout">Log Out</Link>
+              <Link to="/trail-run-planner-frontend">Home</Link> | <Link to="/trail-run-planner-frontend/trails">Trails</Link> |{" "}
+              <Link to="/trail-run-planner-frontend/journals">Running Journal</Link> |{" "}
+              <Link to="/trail-run-planner-frontend/logout">Log Out</Link>
             </nav>
           ) : (
             <nav>
-              <Link to="/home">Home</Link> | <Link to="/trails">Trails</Link> |{" "}
-              <Link to="/login">Log In</Link> |{" "}
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/trail-run-planner-frontend">Home</Link> | <Link to="/trail-run-planner-frontend/trails">Trails</Link> |{" "}
+              <Link to="/trail-run-planner-frontend/login">Log In</Link> |{" "}
+              <Link to="/trail-run-planner-frontend/signup">Sign Up</Link>
             </nav>
           )}
           <Switch>
-            <Route exact path="/home">
+            <Route exact path="/trail-run-planner-frontend">
               <Home />
             </Route>
-            <Route path="/trails">
+            <Route path="/trail-run-planner-frontend/trails">
               <TrailsContainer />
             </Route>
-            <Route path="/journals">
+            <Route path="/trail-run-planner-frontend/journals">
               <JournalContainer />
             </Route>
-            <Route exact path="/login">
+            <Route exact path="/trail-run-planner-frontend/login">
               <LogIn />
             </Route>
-            <Route exact path="/signup">
+            <Route exact path="/trail-run-planner-frontend/signup">
               <SignUp />
             </Route>
-            <Route exact path="/logout">
+            <Route exact path="/trail-run-planner-frontend/logout">
               <LogOut />
             </Route>
           </Switch>

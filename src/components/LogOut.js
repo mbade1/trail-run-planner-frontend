@@ -11,7 +11,7 @@ const LogOut = ({ history }) => {
         <div
           onClick={() => {
             localStorage.removeItem("id");
-            history.push("/home");
+            history.push("/trail-run-planner-frontend");
             window.location.reload();
           }}
         >
