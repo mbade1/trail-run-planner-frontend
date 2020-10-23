@@ -85,8 +85,7 @@ class Journals extends React.Component {
               {/* url to be used: } */}
               <div className="journal-map-and-info">
                 <Iframe
-                  // url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${journal.latitude},${journal.longitude}`}
-                  url='https://www.google.com'
+                  url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${journal.latitude},${journal.longitude}`}
                   width="200px"
                   height="200px"
                   id="myId"

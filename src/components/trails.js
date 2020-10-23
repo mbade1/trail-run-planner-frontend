@@ -77,8 +77,7 @@ class Trails extends React.Component {
               />
               <h2>{trail.name}</h2>
               <Iframe
-                //url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
-                url="https://www.google.com"
+                url={`https://www.google.com/maps/embed/v1/place?key=${REACT_APP_GOOGLE_MAPS_API}&q=location=${trail.latitude},${trail.longitude}`}
                 width="200px"
                 height="200px"
                 id="myId"
