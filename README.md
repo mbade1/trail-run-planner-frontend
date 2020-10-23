@@ -8,6 +8,8 @@ The app utilizies a React frontend, Rails API backend, and stores data from 3rd-
 
 ## Installation
 
+To see a LIVE version of this app, [click here](https://mbade1.github.io/trail-run-planner-frontend/)
+
 After cloning down this repo, be sure to clone down the [backend](https://github.com/mbade1/trail-run-planner-backend) as well.
 
 To install the backend:
@@ -36,11 +38,9 @@ The app is available as open source under the terms of the [MIT License](https:/
 
 For more information on the design of this project, feel free to check out my [Blog](https://mbade1.github.io/trail_run_planner).
 
-For a walk-through of this project, go [here]().
+For a walk-through of this project, go [here](https://www.youtube.com/watch?v=SI4kpvIUcO4&list=PLUv_cs_etiP6OZLl71AmWDIPSjAATDnfX&index=1&t=1s).
 
 To view more apps, go to my [portfolio](http://mbadedeveloper.com).
-
-
 
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
